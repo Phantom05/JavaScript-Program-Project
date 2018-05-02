@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>changeCalculator</title>
+    <link rel="stylesheet" href="../common/css/default.css">
+    <link rel="stylesheet" href="../css/changeCalculator.css">
+    <link href="https://fonts.googleapis.com/css?family=Hi+Melody" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <!--[if IE 8]><![endif]-->
+</head>
+
+<body>
+    <div class="load">
+        <div class="loadIcon"></div>
+    </div>
+    <div class="wrap">
+        <header class="title">
+            <h1 class="main-font">거스름돈 계산기</h1>
+            <input type="text" id="calInfo" autofocus placeholder="금액을 입력해 주세요"><button type="button" id="calClick" class="main-font tabHover">계산기</button>
+            <button type="button" id="calCancle" class="main-font tabHover">취소</button>
+        </header>
+    </div>
+    <div class="wrap">
+        <section class="board">
+            <h2 class="info" alt="계산내용">계산내용</h2>
+            <div class="main-font">
+                <label for="total" class="main-font">총 금액:</label> <input type="text" id="total" required alt="총 금액"> 원
+            </div>
+            <div class="main-font">
+                <label for="fiveHund" class="main-font">만　원:</label> <input type="text" id="thonHund" readonly alt="10000원"> 개
+            </div>
+            <div class="main-font">
+                <label for="fiveHund" class="main-font">천　원:</label> <input type="text" id="tenHund" readonly alt="1000원"> 개
+            </div>
+            <div class="main-font">
+                <label for="fiveHund" class="main-font">오백원:</label> <input type="text" id="fiveHund" readonly alt="500원"> 개
+            </div>
+            <div class="main-font">
+                <label for="threeHund" class="main-font">삼백원:</label> <input type="text" id="threeHund" readonly alt="300원"> 개
+            </div>
+            <div class="main-font">
+                <label for="oneHund" class="main-font">백　원:</label> <input type="text" id="oneHund" readonly alt="100원"> 개
+            </div>
+            <div class="main-font">
+                <label for="ten" class="main-font">십　원:</label> <input type="text" id="ten" readonly alt="10원"> 개
+            </div>
+            <div class="main-font">
+                <label for="one" class="main-font">일　원:</label> <input type="text" id="one" readonly alt="1원"> 개
+            </div>
+        </section>
+    </div>
+    <footer>
+        <address>copyright 2018 all rights reserved major09</address>
+    </footer>
+    <script src="../js/changeCalculator.js"></script>
+    <noscript>자바 스크립트 사용환경해서 실행해주세요 ^-^</noscript>
+</body>
+</html>

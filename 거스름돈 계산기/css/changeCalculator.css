@@ -1,0 +1,150 @@
+body {
+  background: #232121; }
+  body .main-font {
+    font-family: "Hi Melody", cursive; }
+  body .wrap {
+    width: 1170px;
+    margin: auto;
+    text-align: center; }
+  body .title h1 {
+    color: white;
+    font-size: 5rem;
+    font-weight: bold;
+    position: relative;
+    margin: 10px 0; }
+  body .title h1:after {
+    display: block;
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    height: 6px;
+    background: yellow;
+    -webkit-animation: borderAni 1s 1s forwards ease;
+    animation: borderAni 1s 1s forwards ease; }
+@-webkit-keyframes borderAni {
+  0% {
+    width: 0; }
+  100% {
+    width: 40%; } }
+@keyframes borderAni {
+  0% {
+    width: 0; }
+  100% {
+    width: 40%; } }
+  body .title .tabHover {
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    width: 100px;
+    color: #fff;
+    margin: 0 0 10px 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-transition: 1s ease;
+    -o-transition: 1s ease;
+    transition: 1s ease;
+    font-size: 2rem;
+    font-family: 'Hi Melody', cursive; }
+  body .title .tabHover:hover {
+    -webkit-transition: 1s ease;
+    -o-transition: 1s ease;
+    transition: 1s ease;
+    color: yellow; }
+  body .title #calInfo {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    margin-right: 10px;
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-family: 'Hi Melody', cursive; }
+  body .board {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: 600px;
+    padding: 20px; }
+    body .board h2 {
+      color: white;
+      text-align: left;
+      font-family: "Hi Melody", cursive;
+      font-size: 1rem;
+      cursor: default; }
+    body .board label,
+    body .board input {
+      display: inline-block;
+      width: 40%;
+      margin: 5px;
+      color: #fff;
+      font-size: 2rem;
+      font-family: 'Hi Melody', cursive; }
+    body .board input {
+      color: #333;
+      cursor: default;
+      font-size: 2rem;
+      font-family: 'Hi Melody', cursive; }
+    body .board div {
+      color: #fff;
+      font-size: 2rem; }
+  body footer {
+    padding: 40px 0; }
+    body footer address {
+      text-align: center;
+      color: white; }
+
+.load {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white; }
+  .load .loadIcon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: rgba(13, 24, 137, 0.8);
+    top: 48%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateY(0);
+    transform: translate(-50%, -50%) rotateY(0);
+    -webkit-animation: tornado 1.5s infinite;
+    animation: tornado 1.5s infinite; }
+@-webkit-keyframes tornado {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+  100% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg); } }
+@keyframes tornado {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0); }
+  100% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg); } }
+@media screen and (max-width: 1170px) {
+  body .wrap {
+    width: 100%; } }
+@media screen and (max-width: 650px) {
+  body .board {
+    width: 90%; }
+
+  .title #calInfo {
+    width: 80%;
+    margin: 10px; } }
+@media screen and (max-width: 520px) {
+  body .title {
+    margin-top: 40px; }
+    body .title h1 {
+      font-size: 3rem; }
+  body .board label,
+  body .board input {
+    width: 30%;
+    font-size: 1.5rem; } }
+
+/*# sourceMappingURL=changeCalculator.css.map */
