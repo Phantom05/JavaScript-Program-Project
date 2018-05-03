@@ -1,0 +1,247 @@
+body {
+  background: #dadada; }
+
+.wrap {
+  width: 800px;
+  margin: auto; }
+
+.coffeeMachine {
+  margin-top: 40px;
+  background: rgba(0, 0, 0, 0.9);
+  position: relative;
+  padding: 30px 70px 70px 0; }
+
+#form {
+  padding: 20px 50px 40px 50px; }
+
+.menuCont {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 10%; }
+  .menuCont li {
+    height: 10%;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s; }
+    .menuCont li a {
+      display: block;
+      padding: 15px; }
+      .menuCont li a i {
+        font-size: 2.5rem;
+        color: white; }
+    .menuCont li:hover a i {
+      color: red;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s; }
+
+.bottomMenu {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 40px; }
+  .bottomMenu li {
+    float: left;
+    text-align: center;
+    width: 30%; }
+    .bottomMenu li a {
+      display: block; }
+      .bottomMenu li a i {
+        font-size: 2.5rem;
+        color: white; }
+
+header {
+  padding: 20px;
+  background: #222; }
+  header h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold; }
+
+section {
+  background: white; }
+
+.orderListBar {
+  text-align: center; }
+
+#search {
+  border: 0;
+  width: 100%;
+  padding-bottom: 5px;
+  font-size: 2rem;
+  font-weihgt: bold;
+  font-family: '';
+  -webkit-animation: colorAni 10s infinite alternate ease;
+  animation: colorAni 10s infinite alternate ease; }
+  #search::-webkit-input-placeholder {
+    color: #dadada; }
+  #search:-ms-input-placeholder {
+    color: #dadada; }
+  #search::-ms-input-placeholder {
+    color: #dadada; }
+  #search::placeholder {
+    color: #dadada; }
+  #search:focus {
+    outline: none; }
+
+.searchNoneSubmit {
+  display: none; }
+
+@-webkit-keyframes colorAni {
+  0% {
+    border-bottom: 3px solid #099ea3; }
+  25% {
+    border-bottom: 3px solid #6de2e8; }
+  50% {
+    border-bottom: 3px solid #7fc3c6; }
+  75% {
+    border-bottom: 3px solid #6dcace; }
+  100% {
+    border-bottom: 3px solid #47aeb2; } }
+@keyframes colorAni {
+  0% {
+    border-bottom: 3px solid #099ea3; }
+  25% {
+    border-bottom: 3px solid #6de2e8; }
+  50% {
+    border-bottom: 3px solid #7fc3c6; }
+  75% {
+    border-bottom: 3px solid #6dcace; }
+  100% {
+    border-bottom: 3px solid #47aeb2; } }
+.orderForm li {
+  padding: 10px 0; }
+  .orderForm li input[type="radio"] {
+    display: none; }
+  .orderForm li label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 2.5px solid #ececec;
+    position: relative;
+    cursor: pointer; }
+  .orderForm li input[type="radio"]:checked + label:before {
+    position: absolute;
+    content: '\2714';
+    color: blue;
+    background: white;
+    display: block;
+    right: 2px;
+    width: 20.5px;
+    height: 20.5px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 1rem; }
+
+.form-title-style {
+  display: inline-block;
+  width: 20%;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: ''; }
+
+.summary {
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8e9191; }
+
+.orderInfo {
+  border: 1px solid #ececec;
+  min-height: 100px;
+  padding: 10px;
+  font-size: 1rem; }
+
+.buttonSt {
+  background: #dadada;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: ''; }
+
+.countShow {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: ''; }
+
+.payList {
+  overflow: hidden; }
+  .payList li {
+    float: left;
+    width: 50%; }
+    .payList li span {
+      float: left;
+      font-size: 1.5rem;
+      font-weight: 200;
+      font-family: ''; }
+    .payList li .showPrice {
+      float: left;
+      padding-left: 20px;
+      font-size: 1.5rem;
+      font-weight: 200;
+      font-family: ''; }
+
+.payButton {
+  background: #ececec;
+  cursor: pointer;
+  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  font-family: ''; }
+  .payButton:focus {
+    outline: none; }
+
+#showList {
+  min-height: 150px; }
+
+.coffeeBox {
+  display: inline-block;
+  position: relative;
+  background: gray;
+  margin: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+  font-size: 0.8rem;
+  font-weight: 200;
+  font-family: ''; }
+  .coffeeBox:hover {
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    color: red; }
+  .coffeeBox:hover:after {
+    display: block;
+    content: '\2714';
+    position: absolute;
+    right: -2px;
+    top: 0;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    color: #5dd5e2; }
+
+.classHide {
+  display: none; }
+
+@media screen and (max-width: 810px) {
+  .wrap {
+    padding: 3px;
+    width: 100%; } }
+
+/*# sourceMappingURL=coffeeOrder.css.map */

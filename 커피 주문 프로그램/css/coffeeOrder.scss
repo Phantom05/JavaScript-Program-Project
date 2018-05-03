@@ -1,0 +1,315 @@
+@import "variable.scss";
+body {background: #dadada}
+
+.wrap {
+    width: 800px;
+    margin: auto;
+}
+
+.coffeeMachine {
+    margin-top: 40px;
+    background: rgba(0,0,0,.9);
+    position: relative;
+    padding: 30px 70px 70px 0;
+}
+#form{
+   padding: 20px 50px 40px 50px;
+}
+
+.menuCont {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 10%;
+    li {
+        height: 10%;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        a {
+            
+            display: block;
+            padding: 15px;
+            i {
+                font: {
+                    size: 2.5rem;
+                }
+                color: $whiteColor;
+
+            }
+
+        }
+        &:hover a i{
+            color: $redColor;
+            -webkit-transition: .5s;
+            -o-transition: .5s;
+            transition: .5s;
+        }
+    }
+}
+
+.bottomMenu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 40px;
+    li {
+        float: left;
+        text-align: center;
+        width: 30%;
+        a {
+            display: block;
+
+            i {
+                font: {
+                    size: 2.5rem;
+                }
+                color:$whiteColor;
+            }
+
+        }
+    }
+}
+
+header {
+    padding: 20px;
+    background: #222;
+    h1 {
+        color: $whiteColor;
+        font: {
+            size: 2rem;
+            weight: bold;
+        }
+    }
+}
+
+section {
+    background: white;
+}
+
+.orderListBar {
+    text-align: center;
+    
+    
+}
+#search{
+    border: 0;
+    width: 100%;
+    padding-bottom: 5px;
+    font:{
+        size:2rem;
+        weihgt:bold;
+        family: '';
+    }
+    -webkit-animation: colorAni 10s infinite alternate ease;
+            animation: colorAni 10s infinite alternate ease;
+    
+    &::-webkit-input-placeholder{
+        color: #dadada;
+    }
+    
+    &:-ms-input-placeholder{
+        color: #dadada;
+    }
+    
+    &::-ms-input-placeholder{
+        color: #dadada;
+    }
+    
+    &::placeholder{
+        color: #dadada;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+.searchNoneSubmit{
+    display: none;
+}
+
+@-webkit-keyframes colorAni {
+    0% {
+        border-bottom: 3px solid #099ea3;
+    }
+    25% {
+        border-bottom: 3px solid #6de2e8;
+    }
+    50% {
+        border-bottom: 3px solid #7fc3c6;
+    }
+    75% {
+        border-bottom: 3px solid #6dcace;
+    }
+    100% {
+        border-bottom: 3px solid #47aeb2;
+    }
+}
+
+
+@keyframes colorAni {
+    0% {
+        border-bottom: 3px solid #099ea3;
+    }
+    25% {
+        border-bottom: 3px solid #6de2e8;
+    }
+    50% {
+        border-bottom: 3px solid #7fc3c6;
+    }
+    75% {
+        border-bottom: 3px solid #6dcace;
+    }
+    100% {
+        border-bottom: 3px solid #47aeb2;
+    }
+}
+
+.orderForm {
+    li {
+        padding: 10px 0;
+        input[type="radio"] {
+            display: none;
+        }
+        label {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2.5px solid #ececec;
+            position: relative;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + label:before {
+            position: absolute;
+            content: '\2714';
+            color: blue;
+            background: $whiteColor;
+            display: block;
+            right: 2px;
+            width: 20.5px;
+            height: 20.5px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 1rem;
+
+        }
+    }
+} 
+@mixin titleFont($size){
+    font:{
+        size:$size+rem;
+        weight:200;
+        family:'';
+    }
+}
+.form-title-style{
+    display: inline-block;
+    width: 20%;
+    @include titleFont(1.5);
+}
+.summary{
+    display: block;
+    width: 100%;
+    font:{
+        size:1.5rem;
+        weight:bold;
+    }
+    color: #8e9191;
+}
+.orderInfo{
+    border: 1px solid #ececec;
+    min-height: 100px;
+    padding: 10px;
+    font:{
+        size:1rem;
+    }
+    
+}
+
+.buttonSt{
+    background: #dadada;
+    width: 50px;
+    height: 50px;
+    @include titleFont(1.5);
+}
+.countShow{
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    line-height: 50px;
+    @include titleFont(1.5);
+}
+
+.payList{
+    overflow: hidden;
+    li{
+        float: left;
+        width: 50%;
+        span{
+            float: left;
+            @include titleFont(1.5);
+        }
+        .showPrice{
+            float: left;
+            padding-left: 20px;
+            @include titleFont(1.5);
+        }
+    }
+    
+}
+.payButton{
+    background: #ececec;
+    cursor: pointer;
+    width: 30%;
+    padding: 5px;
+    border-radius: 5px;
+    &:focus{
+        outline: none;
+    }
+    @include titleFont(1.5);
+}
+#showList{
+    min-height: 150px;
+}
+.coffeeBox{
+    display: inline-block;
+    position: relative;
+    background: gray;
+    margin: 5px;
+    color: $whiteColor;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    @include titleFont(.8);
+    &:hover{
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        color: $redColor;
+    }
+    &:hover:after{
+        display: block;
+        content: '\2714';
+        position: absolute;
+        right: -2px;
+        top: 0;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        color: #5dd5e2;
+    }
+}
+.classHide{
+    display: none;
+}
+
+@media screen and (max-width:810px){
+    .wrap{
+        padding: 3px;
+        width: 100%;
+    }
+}
