@@ -33,7 +33,7 @@
                 </ul>
             </nav>
             <header>
-                <h1>JS'S COFFEE</h1>
+                <h1>JAVASCRIPT COFFEE</h1>
             </header>
             <section>
                 <form action="" id="form">
@@ -45,19 +45,25 @@
                         </li>
 
                         <li>
+                           <p>COFFEE SELECT</p>
                             <div id="showList">
                             </div>
                         </li>
 
+                        <li class="coffeeCart">
+                            <span>COFFEE ORDER LIST-</span>
+                            <p id="cart"></p>
+                        </li>
+
                         <li id="sizeForm">
                             <span class="form-title-style">SIZE</span>
-                            <span>SMALL</span>
+                            <span class="select-style">SMALL</span>
                             <input type="radio" name="size" id="small" value="Small">
                             <label for="small"></label>
-                            <span>TALL</span>
+                            <span class="select-style">TALL</span>
                             <input type="radio" name="size" id="tall" value="Tall">
                             <label for="tall"></label>
-                            <span>LARGE</span>
+                            <span class="select-style">LARGE</span>
                             <input type="radio" name="size" id="large" value="Large">
                             <label for="large"></label>
 
@@ -65,27 +71,27 @@
 
                         <li id="hotColdForm">
                             <span class="form-title-style">HOT / ICE</span>
-                            <span>HOT</span>
+                            <span class="select-style">HOT</span>
                             <input type="radio" name="hotcold" id="hot" value="Hot">
                             <label for="hot"></label>
-                            <span>ICE</span>
+                            <span class="select-style">ICE</span>
                             <input type="radio" name="hotcold" id="ice" value="Ice">
                             <label for="ice"></label>
                         </li>
 
                         <li id="shotForm">
                             <span class="form-title-style">ADD SHOT</span>
-                            <span>YES</span>
+                            <span class="select-style">YES</span>
                             <input type="radio" name="Shot" id="add" value="추가 한">
                             <label for="add"></label>
-                            <span>NO</span>
+                            <span class="select-style">NO</span>
                             <input type="radio" name="Shot" id="notAdd" value="추가하지 않은">
                             <label for="notAdd"></label>
                         </li>
 
                         <li class="countForm">
                             <span class="form-title-style">Count</span>
-                            <button type="button" class="buttonSt" id="countUp">+</button>
+                            <button type="button" class="buttonSt select-button" id="countUp">+</button>
                             <span class="countShow"></span>
                             <button type="button" class="buttonSt" id="countDown">-</button>
                         </li>
@@ -138,6 +144,9 @@
         let chechShot = document.querySelectorAll('#shotForm input');
         let checkingShot = '';
 
+        let cart = document.getElementById('cart');
+        let cartList = '';
+
         let count = 0;
 
 
@@ -162,84 +171,94 @@
                         let coffebox = document.createElement('span');
                         coffebox.classList.add('coffeeBox');
                         coffebox.append(dexMe)
-                        searchListShow.append(coffebox)
 
-
-
-
+                        if (searchListShow.childNodes);
+                        searchListShow.append(coffebox);
                     }
                 }
-
-
-
-
 
                 search.value = '';
             }
         }
 
         searchListShow.addEventListener('click', function(e) {
+            if (e.target.classList.length == 1) {
+                e.target.classList.add('deleteIcon');
+                cart.append(e.target);
+            }
+        })
+
+        cart.addEventListener('click', function(e) {
+            if ((e.target.classList.length == 1)) {
+                for (var cartClass = 0; cartClass < cart.children.length; cartClass++) {
+                    cart.children[cartClass].classList.toggle('classHide');
+                }
+            }
             if (e.target.classList.replace('coffeeBox', 'classHide')) {
-                console.log('hello')
+
             }
         })
 
 
-
         countUp.addEventListener('click', function() {
-            countShow.innerHTML = count++;
-            if (count == 10) {
+            if (count == 11) {
                 alert('10개 이상주문시 직원한태 말씀해 주세요.')
             }
+            countShow.innerHTML = count++;
+
         });
         countDown.addEventListener('click', function() {
             countShow.innerHTML = count--;
         });
 
-        
-        
-        
+
+
+
 
         let orderButton = document.getElementById('orderButton');
         orderButton.addEventListener('click', function() {
 
 
-                if (document.getElementById('orderButton').value == 'OK') {
-                    document.getElementById('orderButton').value = 'ORDER';
+            if (document.getElementById('orderButton').value == 'OK') {
+                document.getElementById('orderButton').value = 'ORDER';
 
-                    for (let sizeSelect = 0; sizeSelect < checkSize.length; sizeSelect++) {
-                        if (checkSize[sizeSelect].checked == true) {
-                            checkingSize = checkSize[sizeSelect].getAttribute('value');
-                        }
+                for (let sizeSelect = 0; sizeSelect < checkSize.length; sizeSelect++) {
+                    if (checkSize[sizeSelect].checked == true) {
+                        checkingSize = checkSize[sizeSelect].getAttribute('value');
                     }
-
-                    //                resultTest(checkSize,0);
-
-                    for (let hcSelect = 0; hcSelect < checkHC.length; hcSelect++) {
-                        if (checkHC[hcSelect].checked == true) {
-                            checkingHC = checkHC[hcSelect].getAttribute('value');
-                        }
-                    }
-
-                    //                resultTest(checkHC,1);
-
-                    for (let shotSelect = 0; shotSelect < chechShot.length; shotSelect++) {
-                        if (chechShot[shotSelect].checked == true) {
-                            checkingShot = chechShot[shotSelect].getAttribute('value');
-                        }
-                    }
-
-                    //                resultTest(chechShot,2);
-
-                    orderShow.innerHTML = '-주문하신 내용은<br>' + checkingHC + '한 상태의 ' + checkingSize + ' 사이즈로 Shot을 ' + checkingShot + ' 상태로 ' + countShow.textContent + '개 입니다.<br> 주문하시면 빠르게 준비 해드릴게요~^-^'
-
-                    showPrice.innerHTML = countShow.textContent * 6000 + ' Won';
-
-
-
-                } else {
-                    confirm('결제 하시겠습니까?')
                 }
+
+                //                resultTest(checkSize,0);
+
+                for (let hcSelect = 0; hcSelect < checkHC.length; hcSelect++) {
+                    if (checkHC[hcSelect].checked == true) {
+                        checkingHC = checkHC[hcSelect].getAttribute('value');
+                    }
+                }
+
+                //                resultTest(checkHC,1);
+
+                for (let shotSelect = 0; shotSelect < chechShot.length; shotSelect++) {
+                    if (chechShot[shotSelect].checked == true) {
+                        checkingShot = chechShot[shotSelect].getAttribute('value');
+                    }
+                }
+
+                //                resultTest(chechShot,2);
+
+                for (let cartSelect = 0; cartSelect < cart.children.length; cartSelect++) {
+                   cartList +=', '+ cart.children[cartSelect].textContent
+                }
+
+                orderShow.innerHTML = '-주문하신 커피는<br>'+cartList+' 커피로 ' + checkingHC + '한 상태의 ' + checkingSize + ' 사이즈, Shot을 ' + checkingShot + ' 상태로 ' + countShow.textContent + '개 입니다.<br> 주문하시면 빠르게 준비 해드릴게요~^-^'
+
+                showPrice.innerHTML = cart.children.length * countShow.textContent * 6000 + ' Won';
+
+
+
+            } else {
+                confirm('결제 하시겠습니까?')
+            }
 
 
 
@@ -304,6 +323,7 @@
         //                    }
         //                }
         //        }
+
     </script>
 </body>
 

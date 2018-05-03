@@ -113,13 +113,16 @@ section {
   100% {
     border-bottom: 3px solid #47aeb2; } }
 .orderForm li {
-  padding: 10px 0; }
+  padding: 10px 0;
+  position: relative; }
   .orderForm li input[type="radio"] {
     display: none; }
   .orderForm li label {
     display: inline-block;
+    top: 5px;
     width: 30px;
     height: 30px;
+    margin-left: 5px;
     border: 2.5px solid #ececec;
     position: relative;
     cursor: pointer; }
@@ -135,6 +138,18 @@ section {
     text-align: center;
     line-height: 30px;
     font-size: 1rem; }
+
+.select-style {
+  margin-left: 10px;
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 1rem; }
+
+.select-button {
+  margin-left: 20px; }
 
 .form-title-style {
   display: inline-block;
@@ -196,14 +211,14 @@ section {
   width: 30%;
   padding: 5px;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 200;
   font-family: ''; }
   .payButton:focus {
     outline: none; }
 
 #showList {
-  min-height: 150px; }
+  min-height: 95px; }
 
 .coffeeBox {
   display: inline-block;
@@ -238,6 +253,24 @@ section {
 
 .classHide {
   display: none; }
+
+.deleteIcon:hover:after {
+  display: block;
+  content: 'x';
+  position: absolute;
+  right: -2px;
+  top: 0;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  color: white; }
+
+.coffeeCart span {
+  font-size: 0.8rem;
+  font-weight: 200;
+  font-family: ''; }
+.coffeeCart p {
+  min-height: 100px; }
 
 @media screen and (max-width: 810px) {
   .wrap {

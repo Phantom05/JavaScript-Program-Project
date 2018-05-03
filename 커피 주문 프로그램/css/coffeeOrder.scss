@@ -35,9 +35,7 @@ body {background: #dadada}
                     size: 2.5rem;
                 }
                 color: $whiteColor;
-
             }
-
         }
         &:hover a i{
             color: $redColor;
@@ -61,14 +59,12 @@ body {background: #dadada}
         width: 30%;
         a {
             display: block;
-
             i {
                 font: {
                     size: 2.5rem;
                 }
                 color:$whiteColor;
             }
-
         }
     }
 }
@@ -169,13 +165,16 @@ section {
 .orderForm {
     li {
         padding: 10px 0;
+        position: relative;
         input[type="radio"] {
             display: none;
         }
         label {
             display: inline-block;
+            top: 5px;;
             width: 30px;
             height: 30px;
+            margin-left: 5px;
             border: 2.5px solid #ececec;
             position: relative;
             cursor: pointer;
@@ -196,6 +195,20 @@ section {
         }
     }
 } 
+.select-style{
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+    top: -5px;
+    height: 30px;
+    line-height: 30px;
+    font:{
+        size:1rem;
+    }
+}
+.select-button{
+    margin-left: 20px;   
+}
 @mixin titleFont($size){
     font:{
         size:$size+rem;
@@ -267,10 +280,10 @@ section {
     &:focus{
         outline: none;
     }
-    @include titleFont(1.5);
+    @include titleFont(1.2);
 }
 #showList{
-    min-height: 150px;
+    min-height: 95px;
 }
 .coffeeBox{
     display: inline-block;
@@ -305,6 +318,27 @@ section {
 }
 .classHide{
     display: none;
+}
+.deleteIcon{
+    &:hover:after{
+        display: block;
+        content: 'x';
+        position: absolute;
+        right: -2px;
+        top: 0;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        color: $whiteColor;
+    }
+}
+.coffeeCart{
+    span{
+         @include titleFont(.8);
+    }
+    p{
+        min-height: 100px;
+    }
 }
 
 @media screen and (max-width:810px){
