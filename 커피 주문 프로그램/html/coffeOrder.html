@@ -213,8 +213,6 @@
 
 
 
-
-
         let orderButton = document.getElementById('orderButton');
         orderButton.addEventListener('click', function() {
 
@@ -247,10 +245,10 @@
                 //                resultTest(chechShot,2);
 
                 for (let cartSelect = 0; cartSelect < cart.children.length; cartSelect++) {
-                   cartList +=', '+ cart.children[cartSelect].textContent
+                    cartList =', '+ cart.children[cartSelect].textContent;
                 }
 
-                orderShow.innerHTML = '-주문하신 커피는<br>'+cartList+' 커피로 ' + checkingHC + '한 상태의 ' + checkingSize + ' 사이즈, Shot을 ' + checkingShot + ' 상태로 ' + countShow.textContent + '개 입니다.<br> 주문하시면 빠르게 준비 해드릴게요~^-^'
+                orderShow.innerHTML = '-주문하신 커피는<br>'+cartList+'를 포함한 '+cart.children.length*countShow.textContent+'잔으로 ' + checkingHC + '한 상태의 ' + checkingSize + ' 사이즈, Shot을 ' + checkingShot + ' 상태로 ' + countShow.textContent + '개입니다.<br> 주문하시면 빠르게 준비해드릴게요~^-^'
 
                 showPrice.innerHTML = cart.children.length * countShow.textContent * 6000 + ' Won';
 

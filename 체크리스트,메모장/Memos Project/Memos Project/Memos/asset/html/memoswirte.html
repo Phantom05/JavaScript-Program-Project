@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MemosWite</title>
+    <link rel="stylesheet" href="../common/default.css">
+    <link rel="stylesheet" href="../css/memoswrite.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Pangolin|Shadows+Into+Light|Skranji" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="container">
+            <header>
+                <h1>MEMO</h1>
+                <span id="arrow" class="arrowClass"><a href="memosTitle.html"><img src="../src/img/arrowLeft.png" alt=""></a></span>
+                <span class="save" id="saveContent">Done</span>
+            </header>
+            <section>
+                <div class="main">
+                    <div class="styleBox">
+                        <ul class="fontStyle">
+                            <li>SIZE</li>
+                            <li>WEIGHT</li>
+                            <li>UI</li>
+                            <li>I</li>
+                            <li>COLOR<input type="color" class="colorSelect"></li>
+                        </ul>
+                        <div class="dateDiv">
+                            <p id="writeDate"></p>
+                        </div>
+                    </div>
+                    <div class="contentArea">
+                        <textarea name="" id="contentInner" class="contentInput" placeholder="작성해 주세요"></textarea>
+
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="footerArea">
+                    <span class="trashbox" id="trashIcon"><img src="../src/img/trashbox.png" alt=""></span>
+                    <span class="link" id="navLink"><img src="../src/img/link.png" alt=""></span>
+                </div>
+                <nav class="footer__link-nav" id="footer__nav">
+                    <ul class="footer__nav-cont">
+                        <li><a href=""><img src="../src/img/facebook.png" alt=""></a></li>
+                        <li><a href=""><img src="../src/img/twitter.png" alt=""></a></li>
+                        <li><a href=""><img src="../src/img/instagram.png" alt=""></a></li>
+                    </ul>
+                    <span class="nav-close" id="nav-close-Icon"><img src="../src/img/close.png" alt=""></span>
+                </nav>
+            </footer>
+        </div>
+
+    </div>
+    <script>
+        let writeDate = new Date();
+        let years = writeDate.getFullYear();
+        let month = writeDate.getMonth();
+        let monthArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+        let day = writeDate.getDate();
+        let hour = writeDate.getHours();
+        let minutes = writeDate.getMinutes();
+        let seconds = writeDate.getSeconds();
+
+        let time = hour + ':' + minutes + ' AM';
+
+        if (day.length == 1) {
+            day = '0' + hour
+        }
+        if (hour >= 12) {
+            time = hour + ' : ' + minutes + ' PM'
+        }
+        let NowDate = monthArray[month] + ' ' + day + ' , ' + time;
+        //        console.log(monthArray[month]+' '+day+' , '+time)
+        console.log(NowDate);
+
+        let topDate = document.getElementById('writeDate');
+        topDate.append(NowDate);
+
+        
+        /* 클릭시 저장하기 버튼 효과 */
+        let contentInner = document.getElementById('contentInner');
+        let saveContent = document.getElementById('saveContent');
+        contentInner.addEventListener('keyup', function() {
+            if (contentInner.value.length >= 1) {
+                saveContent.classList.add('show');
+            } else if (contentInner.value.length < 1) {
+                saveContent.classList.remove('show');
+            }
+        });
+          //디비 연동 해야함
+         saveContent.addEventListener('click',function(){
+             console.log('저장');
+         })
+        
+        /* 클릭시 저장하기 버튼 효과 */
+        
+        
+        /* 푸터 링크 에니메이션 효과 */
+        let navLink =document.getElementById('navLink');
+        let footer__nav =document.getElementById('footer__nav');
+        
+        navLink.addEventListener('click',function(){
+            footer__nav.classList.toggle('footer__show');
+        });
+        
+        let closeIcon=document.getElementById('nav-close-Icon');
+        closeIcon.addEventListener('click',function(){
+            footer__nav.classList.remove('footer__show')
+        });
+        /* 푸터 링크 에니메이션 효과 */
+        
+        /* 삭제 구현 로직 공간 */
+        let trashIcon=document.getElementById('trashIcon');
+        trashIcon.addEventListener('click',function(){
+            let deleteSelect = confirm('삭제하시겠습니까?');
+            if(deleteSelect == true){
+                console.log('삭제');
+                
+                window.location.href='memosTitle.html';
+            }else if(deleteSelect ==false){
+                console.log('취소')
+            }
+        });
+        /* 삭제 구현 로직 공간 */
+    </script>
+</body>
+
+</html>

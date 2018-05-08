@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../common/default.css">
+    <link rel="stylesheet" href="../css/MemosTitle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Pangolin|Shadows+Into+Light|Skranji" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="container">
+            <header>
+                <h1>MEMO</h1>
+                <span id="arrow" class="arrowClass"><a href="../Momos.html"><img src="../src/img/arrowLeft.png" alt=""></a></span>
+                <span class="memo__write"><a href="memoswirte.html"><img src="../src/img/write.png" alt=""></a></span>
+            </header>
+            <section>
+                <div id="search">
+                    <input type="text" class="contInput">
+                    <input type="text" autocomplete="off" class="title--search" id="searchBar" placeholder="search">
+                </div>
+                <div class="main">
+                    <ul id="list">
+                        <li class="titleTle">
+                            <div class="listTitle">
+                                오늘은 날씨가 좋다
+                                <span class="tooltiptext">Tooltip text</span>
+                            </div>
+                        </li>
+                        <li class="titleTle">
+                            <div class="listTitle">
+                                오늘은 날씨가 좋다
+                                <span class="tooltiptext">Tooltip text</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <footer>
+                <div id="myDIV">
+                    <button class="btn active">1</button>
+                    <button class="btn">2</button>
+                    <button class="btn">3</button>
+                    <button class="btn">4</button>
+                    <button class="btn">5</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        let header = document.getElementById("myDIV");
+        let btns = header.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+        let searchBar = document.getElementById('searchBar');
+        let checkList = document.getElementById('list')
+        /* 
+            default Ui CheckList view 
+        */
+
+        for (let defaultCount = 0; defaultCount < 10; defaultCount++) {
+            let defaultDiv = document.createElement('li');
+            defaultDiv.classList.add('deleteDeco')
+            checkList.append(defaultDiv)
+        }
+
+        /* 
+            default Ui CheckList view 
+        */
+        
+        if(checkList.childElementCount ==10){
+            console.log('11');
+        }
+        
+        
+        let titleList = document.querySelectorAll('#list li');
+        
+        for(let p=0;p<titleList.length;p++){
+            titleList[p].addEventListener('click',function(e){
+                if(this.className ='titleTle'){
+                    console.log('yaho');
+                    let removeList = document.createElement('span');
+                    removeList.classList.add('rmIcon');
+                    titleList[p].append(removeList);
+                    
+                    let modList = document.createElement('span');
+                    modList.classList.add('modIcon');
+                    titleList[p].append(modList);
+                    
+                    
+                    
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
