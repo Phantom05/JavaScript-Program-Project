@@ -56,6 +56,9 @@
         </section>
         <footer>
           <div class="watch__controler">
+            <div class="resetCont changeClose" id="resetBt">
+              reset
+            </div>
             <div class="controlder_lumi" id="luminous">
               <button type="button" class="lumiBt"></button>
             </div>
@@ -114,27 +117,8 @@
       let analogbutton = document.getElementById('analogbutton');
       let stopbutton = document.getElementById('stopbutton');
       let lab = document.getElementById('lab');
-
-      // let timer;
-      // let count = 00;
-      // let divi = 100;
-
-      // if (count.length == 1) {
-      //   count = '0' + count;
-      // }
-
-      // stopWatch = '00' + ':' + '00' + ':' + count;
-      // lab.innerText = stopWatch;
-      // let labController = setInterval(function(){
-      //   count += 1;
-      //   min = count +1;
-      //   if(count ==60){
-      //     count =0;
-      //   }console.log(count);
-      //   if(min%60==0){
-      //     console.log('min :',min, '분');
-      //   }
-      // },50)
+      let resetBt = document.getElementById('resetBt');
+      let outButton = document.getElementById('outButton');
 
       let buttonList = document.querySelectorAll('.watch__controler-cont li');
       console.log(buttonList);
@@ -144,13 +128,11 @@
           buttonList[i].style.width = "30%";
         }
       }
-
       function noneActivBt() {
         for (var i = 0; i < buttonList.length; i++) {
           buttonList[i].style.width = "47%";
         }
       }
-
 
       labBt.addEventListener('click', function (e) {
 
@@ -165,61 +147,70 @@
           labView.classList.add('changeView');
           setTimeout(() => {
             outButton.classList.add('changeView');
+            resetBt.classList.add('changeView');
           }, 500);
           activeBt();
-        } 
-        else if (labBt.getAttribute('data-start') == "stop") {
+        } else if (labBt.getAttribute('data-start') == "stop") {
           labBt.firstElementChild.textContent = '정지';
           labBt.setAttribute('data-start', "restart");
           analogbutton.setAttribute('data-name', 'unact');
           analogbutton.textContent = "랩";
 
-          Interval = setInterval(startTimer, 10);//timer start
+          Interval = setInterval(startTimer, 10); //timer start
 
-        } 
-        else if (labBt.getAttribute('data-start') == "restart") {
+        } else if (labBt.getAttribute('data-start') == "restart") {
           labBt.firstElementChild.textContent = '재시작';
           labBt.setAttribute('data-start', "stop");
           analogbutton.setAttribute('data-name', 'unact');
           analogbutton.textContent = "랩";
 
-          clearInterval(Interval);//timer stop
+          clearInterval(Interval); //timer stop
 
-        } 
-        else {
-          
+        } else {
+
         }
       })
 
-
-      let outButton = document.getElementById('outButton');
-      outButton.addEventListener('click',function(){
+      resetBt.addEventListener('click', function () {
+        (tens>1)?clearInterval(Interval):false;
+ 
+        tens = "00";
+        seconds = "00";
+        minit = "00";
+        labTens.innerHTML = tens;
+        labSec.innerHTML = seconds;
+        labMin.innerHTML = minit;
+        labBt.firstElementChild.textContent = '시작';
+        labBt.setAttribute('data-start', "stop");
+          stopbutton.classList.add('ft-Wt');
+          analogbutton.setAttribute('data-name', 'unact');
+      })
+     
+      outButton.addEventListener('click', function () {
+        labBt.setAttribute('data-start','start');
+        timeView.classList.remove('changeClose');
+        labView.classList.remove('changeView');
+        outButton.classList.remove('changeView');
+        resetBt.classList.remove('changeView');
         labBt.firstElementChild.textContent = '스톱워치';
-          labBt.classList.remove('stopColor');
-          labBt.setAttribute('data-start', 'start');
-          stopbutton.classList.remove('ft-Wt');
-          analogbutton.setAttribute('data-name', 'analog');
-          analogbutton.textContent = "아날로그";
-          timeView.classList.remove('changeClose');
-          labView.classList.remove('changeView');
-          outButton.classList.remove('changeView');
+        labBt.classList.remove('stopColor');
+        analogbutton.textContent='아날로그';
+        analogbutton.setAttribute('data-name','analog');
+        
 
-          noneActivBt();
-
-        clearInterval(Interval);
-         tens = "00";
-         seconds = "00";
-         minit ="00";
-         labTens.innerHTML = tens;
-         labSec.innerHTML = seconds;
-         labMin.innerHTML= minit;
+        noneActivBt();
+        (tens>1)?clearInterval(Interval):false;
+        
+        tens = "00";
+        seconds = "00";
+        minit = "00";
+        labTens.innerHTML = tens;
+        labSec.innerHTML = seconds;
+        labMin.innerHTML = minit;
 
       })
 
-
-
-
-      let labMin =document.getElementById('min');
+      let labMin = document.getElementById('min');
       let labSec = document.getElementById('seconds');
       let labTens = document.getElementById('tens');
       var minit = 00;
@@ -243,19 +234,19 @@
         if (seconds > 9) {
           labSec.innerHTML = seconds;
         }
-        if(seconds >59){
+        if (seconds > 59) {
           minit++;
-          labMin.innerText="0"+minit;
-          seconds =0;
-          seconds.innerHTML="+"+0;
+          labMin.innerText = "0" + minit;
+          seconds = 0;
+          seconds.innerHTML = "+" + 0;
         }
-        if(minit>9){
-          labMin.innerText=minit;
+        if (minit > 9) {
+          labMin.innerText = minit;
         }
-        
+
 
       }
-      
+
       // buttonStop.onclick = function () {
       //   clearInterval(Interval);
       // }
@@ -292,20 +283,6 @@
         let rec = document.getElementById('rec');
         rec.classList.toggle('lightBet');
       })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     })

@@ -48,7 +48,7 @@ header {
 
 /* main */
 .changeClose {
-  display: none; }
+  display: none !important; }
 
 .changeView {
   display: block !important;
@@ -161,7 +161,7 @@ footer {
 .controlder_lumi {
   display: inline-block;
   position: absolute;
-  right: 20px;
+  right: 10px;
   bottom: 60px;
   cursor: pointer;
   border-radius: 100%;
@@ -207,6 +207,20 @@ footer {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s; }
+
+.resetCont {
+  display: inline-block;
+  position: absolute;
+  right: 50px;
+  bottom: 60px;
+  width: 40px;
+  height: 25px;
+  line-height: 25px;
+  background: blue;
+  cursor: pointer;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff; }
 
 .showBox {
   padding-top: 85px; }
