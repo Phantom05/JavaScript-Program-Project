@@ -228,20 +228,30 @@ footer {
 
 .labBox {
   display: none;
-  margin-top: 10px;
-  border: 1px solid blue; }
+  margin-top: 10px; }
   .labBox ul {
     overflow: hidden; }
   .labBox li {
     width: 50%;
     float: left; }
     .labBox li p {
-      color: #bbb;
-      font-size: 1rem; }
+      font-size: 1rem;
+      color: #fff; }
+      .labBox li p span {
+        color: rgba(187, 187, 187, 0.747);
+        font-weight: bold; }
+    .labBox li:first-child {
+      padding-left: 25px; }
+    .labBox li:last-child {
+      padding-right: 25px; }
+
+.labBoxSendCont {
+  height: 190px;
+  overflow: hidden; }
 
 #server {
   border: 1px solid red; }
-  #server p {
+  #server p, #server span {
     font-size: 2rem;
     font-weight: bold;
     color: blue; }

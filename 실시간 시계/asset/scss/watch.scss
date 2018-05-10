@@ -266,7 +266,7 @@ footer{
 .labBox{
   display: none;
   margin-top: 10px;
-  border: 1px solid blue;
+  // border: 1px solid blue;
   ul{
     overflow: hidden;
   }
@@ -274,17 +274,35 @@ footer{
     width: 50%;
     float: left;
     p{
-      color: #bbb;
+      
       font-size: 1rem;
+      color: #fff;
+      span{
+        color: rgba(187, 187, 187, 0.747);
+        font-weight: bold;
+      }
+    }
+    &:first-child{
+      padding-left: 25px;
+    }
+    &:last-child{
+      padding-right: 25px;
     }
   }
 }
+.labBoxSendCont{
+  height: 190px;
+  overflow: hidden;
+
+}
 
 #server{
-  p{
+  p,span{
+
     font-size: 2rem;
     font-weight: bold;
     color: blue;
+    
   }
   border: 1px solid red;
 }

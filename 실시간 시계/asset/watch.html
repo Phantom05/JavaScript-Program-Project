@@ -191,6 +191,7 @@
           stopbutton.classList.add('ft-Wt');
           analogbutton.setAttribute('data-name', 'unact');
           labBox__left.innerHTML="";
+          labBox__right.innerHTML='';
           labNumber =0;
       })
      
@@ -207,6 +208,7 @@
         timeBt.setAttribute('data-name',"noneLabFun");
         labBoxId.classList.remove('changeView');
         labBox__left.innerHTML='';
+        labBox__right.innerHTML='';
         labNumber =0;
 
         noneActivBt();
@@ -280,20 +282,23 @@
           
           (labNumber<10)? labNumber= "0"+labNumber:labNumber=labNumber;
           let labRank = document.createElement('p');
-          let labTool = '랩 '+labNumber+' '+labMin.textContent+":"+labSec.textContent+":"+labTens.textContent;
-          labRank.innerText=labTool;
+          let labInnerRank = document.createElement('span');
+          let aby = labInnerRank.innerHTML="<span>"+'랩 '+labNumber+"</span>";
+          console.log(aby);
+          let labTool = aby+' '+labMin.textContent+":"+labSec.textContent+":"+labTens.textContent;
+          labRank.innerHTML=labTool;
           (tens>1)?labBox__left.prepend(labRank):false;
           console.log(labNumber);
 
           if(labBox__left.childElementCount > 10){
-            labBox__left.style.height="190px";
-            labBox__left.style.overflow="hidden";
-            let labBoxlastChild =labBox__left.lastElementChild;
-            server.prepend(labBoxlastChild);
-            console.log(labBoxlastChild);
-          console.log('no');
-            
-
+            labBox__left.classList.add('labBoxSendCont');
+            let labBoxlastChildLeft =labBox__left.lastElementChild;
+            labBox__right.prepend(labBoxlastChildLeft);
+            let labBoxlastChildRight = labBox__right.lastElementChild;
+            if(labBox__right.childElementCount > 10){
+              labBox__right.classList.add('labBoxSendCont');
+              server.prepend(labBoxlastChildRight);
+            }
         }
 
         }
