@@ -1,0 +1,193 @@
+body {
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s; }
+
+.wrap {
+  width: 400px;
+  margin: 30px auto; }
+
+.main {
+  position: relative;
+  height: 300px; }
+
+header {
+  position: relative; }
+
+.watch__container {
+  width: 400px;
+  padding: 20px;
+  border-radius: 20px; }
+
+.watch-style-v1 {
+  background: #cccccc; }
+
+.watch__inner {
+  padding: 20px;
+  border-radius: 20px; }
+
+.watch__inner-style {
+  background: #000; }
+
+.header {
+  overflow: hidden;
+  padding: 0px 25px; }
+  .header .header__list {
+    float: left;
+    width: 50%; }
+  .header .header__title {
+    color: orange; }
+  .header .header__title-v1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -1px; }
+  .header .header__date {
+    text-align: right;
+    color: #fff; }
+
+/* main */
+.changeClose {
+  display: none; }
+
+.watch__main {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.watch__main-style-v1 {
+  padding: 0px 25px; }
+  .watch__main-style-v1 .time-style {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 5px 0; }
+
+.lab__main {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.lab-style {
+  color: #fff; }
+
+.watch__main-style-v1 {
+  padding: 0px 25px; }
+  .watch__main-style-v1 .lab-style {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 5px 0; }
+
+footer {
+  position: relative; }
+
+.watch__controler-cont {
+  display: block;
+  overflow: hidden;
+  text-align: center; }
+  .watch__controler-cont li {
+    float: left;
+    width: 47%;
+    border-radius: 15px;
+    margin: 3px; }
+    .watch__controler-cont li:hover button {
+      color: #fff;
+      -webkit-transition: .5s;
+      -o-transition: .5s;
+      transition: .5s; }
+  .watch__controler-cont .controler__bt-v1 {
+    background: #424040; }
+  .watch__controler-cont .controler__bt-v2 {
+    background: rgba(35, 207, 136, 0.502); }
+  .watch__controler-cont .controler__bt {
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold; }
+  .watch__controler-cont .button-v1 {
+    color: rgba(230, 230, 230, 0.452); }
+  .watch__controler-cont .button-v2 {
+    color: rgba(255, 255, 255, 0.568); }
+
+.ft-Wt {
+  color: #fff;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s; }
+
+.luminousMode {
+  background: #000;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s; }
+
+.luminousBt {
+  background: #3af80a !important;
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+  -webkit-animation: light 5s infinite linear alternate;
+  animation: light 5s infinite linear alternate; }
+
+@-webkit-keyframes light {
+  0% {
+    background: #3af80a; }
+  100% {
+    background: #6ceb45;
+    -webkit-box-shadow: 0px 0px 2px greenyellow;
+    box-shadow: 0px 0px 2px greenyellow; } }
+@keyframes light {
+  0% {
+    background: #3af80a; }
+  100% {
+    background: #6ceb45;
+    -webkit-box-shadow: 0px 0px 2px greenyellow;
+    box-shadow: 0px 0px 2px greenyellow; } }
+.controlder_lumi {
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  bottom: 60px;
+  cursor: pointer;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  background: rgba(35, 207, 136, 0.502);
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s; }
+  .controlder_lumi:hover {
+    background: #3af80a;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s; }
+
+.lightBet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: red;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  opacity: 1;
+  border-radius: 100%;
+  -webkit-animation: lightRed 2s infinite alternate;
+  animation: lightRed 2s infinite alternate;
+  -webkit-animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035); }
+
+@-webkit-keyframes lightRed {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes lightRed {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/*# sourceMappingURL=watch.css.map */

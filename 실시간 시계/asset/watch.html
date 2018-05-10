@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="common/default.css">
+  <link rel="stylesheet" href="scss/watch.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Document</title>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="watch watch__container watch-style-v1">
+      <div class="watch__inner watch__inner-style">
+        <header>
+          <span id="rec"></span>
+          <ul class="header">
+            <li class="header__list  header__title header__title-v1">
+              디지털
+            </li>
+            <li class="header__list header__date header__title-v1" id="dateNow">
+              
+            </li>
+          </ul>
+        </header>
+        <section class="main">
+          <!-- time -->
+            <div id="timeView" class="watch__main watch__main-style-v1">
+                <p id="time" class="time-style"></p>
+              </div>
+
+          <!-- lab -->
+          <div id="labView" class="lab__main watch__main-style-v1">
+              <p id="lab" class="lab-style">
+
+              </p>
+          </div>
+        </section>
+        <footer>
+              <div class="watch__controler">
+                  <div class="controlder_lumi" id="luminous">
+                      <button type="button" class="lumiBt"></button>
+                  </div>
+                <ul class="watch__controler-cont">
+                  <li class="controler__bt-v1" id="timeBt">
+                    <button type="button" class="controler__bt button-v1">아날로그</button>
+                  </li>
+                  <li id="labBt" class="controler__bt-v1">
+                    <button type="button" class="controler__bt button-v2">스톱워치</button>
+                  </li>
+              
+                </ul>
+              </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      setInterval(function () {
+        let time = document.getElementById('time');
+        let titleDay = document.getElementById('dateNow');
+        let date = new Date();
+        let year =String(date.getFullYear());
+        let mon = String(date.getMonth()+1);
+        let day = String(date.getDate()) ;
+        
+        let hour = String(date.getHours());
+        let min = String(date.getMinutes());
+        let sec = String(date.getSeconds());
+        (hour.length == 1) ? hour = '0' + hour: hour;
+        (min.length == 1) ? min = '0' + min: min;
+        (sec.length == 1) ? sec = '0' + sec: sec;
+
+        (year.length == 1) ? year = '0' + year: year;
+        (mon.length == 1) ? mon = '0' + mon: mon;
+        (day.length == 1) ? day = '0' + day: day;
+        
+        let customYear = year.substr(2,2);
+        let timeNow = hour + ':' + min + ':' + sec;
+        let dateNow =customYear+'-'+mon+'-'+day;
+
+        time.innerText = timeNow;
+        titleDay.innerText=dateNow;
+        
+      }, 1000);
+
+
+      let timeBt =document.getElementById('timeBt');
+      let labBt =document.getElementById('labBt');
+      let timeView =document.getElementById('timeView');
+      let labView =document.getElementById('labView');
+
+      labBt.addEventListener('click',function(){
+        timeView.classList.toggle('changeClose');
+      })
+
+      timeBt.addEventListener('click',function(){
+        if(timeBt.firstElementChild.textContent='아날로그'){
+          timeBt.firstElementChild.textContent='디지털';
+        }else{
+          console.log('h')
+          timeBt.firstElementChild.textContent='아날로그';
+        }
+        ;
+      })
+
+      let luminous =document.getElementById('luminous');
+      luminous.addEventListener('click',function(){
+        document.body.classList.toggle('luminousMode');
+        this.classList.toggle('luminousBt');
+
+        let rec=document.getElementById('rec');
+        rec.classList.toggle('lightBet');
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+  </script>
+</body>
+
+</html>
