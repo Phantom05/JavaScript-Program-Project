@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="common/default.css">
   <link rel="stylesheet" href="scss/watch.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -24,38 +25,40 @@
               디지털
             </li>
             <li class="header__list header__date header__title-v1" id="dateNow">
-              
+
             </li>
           </ul>
         </header>
         <section class="main">
           <!-- time -->
-            <div id="timeView" class="watch__main watch__main-style-v1">
-                <p id="time" class="time-style"></p>
-              </div>
+          <div id="timeView" class="watch__main watch__main-style-v1">
+            <p id="time" class="time-style"></p>
+          </div>
 
           <!-- lab -->
           <div id="labView" class="lab__main watch__main-style-v1">
-              <p id="lab" class="lab-style">
-
-              </p>
+            <p id="lab" class="lab-style">
+              00:00:00
+            </p>
           </div>
         </section>
         <footer>
-              <div class="watch__controler">
-                  <div class="controlder_lumi" id="luminous">
-                      <button type="button" class="lumiBt"></button>
-                  </div>
-                <ul class="watch__controler-cont">
-                  <li class="controler__bt-v1" id="timeBt">
-                    <button type="button" class="controler__bt button-v1">아날로그</button>
-                  </li>
-                  <li id="labBt" class="controler__bt-v1">
-                    <button type="button" class="controler__bt button-v2">스톱워치</button>
-                  </li>
-              
-                </ul>
-              </div>
+          <div class="watch__controler">
+            <div class="controlder_lumi" id="luminous">
+              <button type="button" class="lumiBt"></button>
+            </div>
+            <ul class="watch__controler-cont">
+              <li class="controler__bt-v1" id="timeBt">
+                <button type="button" class="controler__bt button-v1" id="analogbutton" data-name="analog">아날로그</button>
+              </li>
+              <li id="labBt" class="controler__bt-v1" data-start="start">
+                <button type="button" class="controler__bt button-v2" id="stopbutton">스톱워치</button>
+              </li>
+              <li id="outButton" class="controler__bt-v1 changeClose" data-start="out">
+                <button type="button" class="controler__bt button-v1">종료</button>
+              </li>
+            </ul>
+          </div>
         </footer>
       </div>
     </div>
@@ -67,10 +70,10 @@
         let time = document.getElementById('time');
         let titleDay = document.getElementById('dateNow');
         let date = new Date();
-        let year =String(date.getFullYear());
-        let mon = String(date.getMonth()+1);
-        let day = String(date.getDate()) ;
-        
+        let year = String(date.getFullYear());
+        let mon = String(date.getMonth() + 1);
+        let day = String(date.getDate());
+
         let hour = String(date.getHours());
         let min = String(date.getMinutes());
         let sec = String(date.getSeconds());
@@ -81,42 +84,126 @@
         (year.length == 1) ? year = '0' + year: year;
         (mon.length == 1) ? mon = '0' + mon: mon;
         (day.length == 1) ? day = '0' + day: day;
-        
-        let customYear = year.substr(2,2);
+
+        let customYear = year.substr(2, 2);
         let timeNow = hour + ':' + min + ':' + sec;
-        let dateNow =customYear+'-'+mon+'-'+day;
+        let dateNow = customYear + '-' + mon + '-' + day;
 
         time.innerText = timeNow;
-        titleDay.innerText=dateNow;
-        
+        titleDay.innerText = dateNow;
+
       }, 1000);
 
 
-      let timeBt =document.getElementById('timeBt');
-      let labBt =document.getElementById('labBt');
-      let timeView =document.getElementById('timeView');
-      let labView =document.getElementById('labView');
+      let timeBt = document.getElementById('timeBt');
+      let labBt = document.getElementById('labBt');
+      let timeView = document.getElementById('timeView');
+      let labView = document.getElementById('labView');
+      let analogbutton = document.getElementById('analogbutton');
+      let stopbutton = document.getElementById('stopbutton');
+      let lab = document.getElementById('lab');
 
-      labBt.addEventListener('click',function(){
-        timeView.classList.toggle('changeClose');
-      })
+      let timer;
+      let count = 0;
+      let divi = 100;
 
-      timeBt.addEventListener('click',function(){
-        if(timeBt.firstElementChild.textContent='아날로그'){
-          timeBt.firstElementChild.textContent='디지털';
-        }else{
-          console.log('h')
-          timeBt.firstElementChild.textContent='아날로그';
+      // let labController = setInterval(function(){
+      //   count += 1;
+      //   min = count +1;
+      //   if(count ==60){
+      //     count =0;
+      //   }console.log(count);
+      //   if(min%60==0){
+      //     console.log('min :',min, '분')
+      //   }
+
+
+      // },50);
+
+ let buttonList = document.querySelectorAll('.watch__controler-cont li');
+          console.log(buttonList);
+         function activeBt() {
+            for (var i = 0; i < buttonList.length; i++) {
+              buttonList[i].style.width = "30%";
+
+            }
+          }
+
+          function noneActivBt() {
+            for (var i = 0; i < buttonList.length; i++) {
+              buttonList[i].style.width = "47%";
+
+            }
+          }
+
+      labBt.addEventListener('click', function (e) {
+        let outButton = document.getElementById('outButton');
+
+
+        if (labBt.getAttribute('data-start') == "start") {
+          labBt.firstElementChild.textContent = '시작';
+          labBt.classList.add('stopColor');
+          labBt.setAttribute('data-start', "stop");
+          stopbutton.classList.add('ft-Wt');
+          analogbutton.setAttribute('data-name', 'unact');
+          analogbutton.textContent = "랩";
+          timeView.classList.add('changeClose');
+          labView.classList.add('changeView');
+          setTimeout(() => {
+            outButton.classList.add('changeView');
+          }, 500);
+         
+  
+         activeBt();
+         
+
+
+
+        } else if (labBt.getAttribute('data-start') == "stop") {
+          labBt.firstElementChild.textContent = '정지';
+          labBt.classList.add('stopColor');
+          labBt.setAttribute('data-start', "finish");
+          stopbutton.classList.add('ft-Wt');
+          analogbutton.setAttribute('data-name', 'unact');
+          analogbutton.textContent = "랩";
+
+
+        } else {
+          labBt.firstElementChild.textContent = '종료';
+          labBt.firstElementChild.textContent = '스톱워치';
+          labBt.classList.remove('stopColor');
+          labBt.setAttribute('data-start', 'start');
+          stopbutton.classList.remove('ft-Wt');
+          analogbutton.setAttribute('data-name', 'analog');
+          analogbutton.textContent = "아날로그";
+          timeView.classList.remove('changeClose');
+          labView.classList.remove('changeView');
+          outButton.classList.remove('changeView');
+
+          noneActivBt();
         }
-        ;
+
+
+
       })
 
-      let luminous =document.getElementById('luminous');
-      luminous.addEventListener('click',function(){
+      timeBt.addEventListener('click', function () {
+        if (analogbutton.getAttribute('data-name') == "analog") {
+          analogbutton.textContent = "디지털";
+          analogbutton.setAttribute('data-name', 'digital');
+
+        } else if (analogbutton.getAttribute('data-name') == "digital") {
+          timeBt.firstElementChild.textContent = '아날로그';
+          analogbutton.setAttribute('data-name', 'analog');
+        };
+      })
+
+      let luminous = document.getElementById('luminous');
+      luminous.addEventListener('click', function () {
         document.body.classList.toggle('luminousMode');
         this.classList.toggle('luminousBt');
 
-        let rec=document.getElementById('rec');
+        let rec = document.getElementById('rec');
         rec.classList.toggle('lightBet');
       })
 

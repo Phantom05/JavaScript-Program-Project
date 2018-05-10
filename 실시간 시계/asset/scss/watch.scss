@@ -18,6 +18,8 @@ header{
   width: 400px;
   padding: 20px;
   border-radius: 20px;
+  box-shadow :1px 5px 10px rgba(210,210,210,.5);
+
 }
 .watch-style-v1{
   background: #cccccc;
@@ -57,6 +59,15 @@ header{
 /* main */
 .changeClose{
   display: none;
+
+}
+.changeView{
+  display: block !important;
+  animation: aa 1s forwards;
+}
+@keyframes aa{
+  0%{display: block !important;opacity: 0;}
+  100%{opacity : 1}
 }
 // time
 .watch__main{
@@ -80,12 +91,10 @@ header{
 
 // lab
 .lab__main{
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
-}
-.lab-style{
-  color: #fff;
 }
 
 .watch__main-style-v1{
@@ -101,6 +110,11 @@ header{
     }
 }
 
+.stopColor{
+  transition: .5s;
+  background: red !important;
+}
+
 //footer
 footer{
   position: relative;
@@ -112,10 +126,13 @@ footer{
   overflow: hidden;
   text-align: center;
   li{
+    position: relative;
     float: left;
     width: 47%;
     border-radius: 15px;
     margin: 3px;
+    transition: .5s;
+    cursor: pointer;
     &:hover button{
       color: #fff;
       -webkit-transition: .5s;
@@ -145,12 +162,7 @@ footer{
     color: rgba(255, 255, 255, 0.568);
   }
 }
-.ft-Wt{
-  color: #fff;
-  -webkit-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s;
-}
+
 .luminousMode{
   background: #000;
   -webkit-transition: 1s;
@@ -218,4 +230,10 @@ footer{
 @keyframes lightRed{
   0%{opacity: 1;}
   100%{opacity: 0;}
+}
+.ft-Wt{
+  color: #fff !important;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
 }

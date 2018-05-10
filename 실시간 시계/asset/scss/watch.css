@@ -17,7 +17,8 @@ header {
 .watch__container {
   width: 400px;
   padding: 20px;
-  border-radius: 20px; }
+  border-radius: 20px;
+  box-shadow: 1px 5px 10px rgba(210, 210, 210, 0.5); }
 
 .watch-style-v1 {
   background: #cccccc; }
@@ -49,6 +50,16 @@ header {
 .changeClose {
   display: none; }
 
+.changeView {
+  display: block !important;
+  animation: aa 1s forwards; }
+
+@keyframes aa {
+  0% {
+    display: block !important;
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .watch__main {
   position: absolute;
   top: 0;
@@ -64,12 +75,10 @@ header {
     padding: 5px 0; }
 
 .lab__main {
+  display: none;
   position: absolute;
   top: 0;
   left: 0; }
-
-.lab-style {
-  color: #fff; }
 
 .watch__main-style-v1 {
   padding: 0px 25px; }
@@ -80,6 +89,10 @@ header {
     border-bottom: 1px solid gray;
     padding: 5px 0; }
 
+.stopColor {
+  transition: .5s;
+  background: red !important; }
+
 footer {
   position: relative; }
 
@@ -88,10 +101,13 @@ footer {
   overflow: hidden;
   text-align: center; }
   .watch__controler-cont li {
+    position: relative;
     float: left;
     width: 47%;
     border-radius: 15px;
-    margin: 3px; }
+    margin: 3px;
+    transition: .5s;
+    cursor: pointer; }
     .watch__controler-cont li:hover button {
       color: #fff;
       -webkit-transition: .5s;
@@ -110,12 +126,6 @@ footer {
     color: rgba(230, 230, 230, 0.452); }
   .watch__controler-cont .button-v2 {
     color: rgba(255, 255, 255, 0.568); }
-
-.ft-Wt {
-  color: #fff;
-  -webkit-transition: .5s;
-  -o-transition: .5s;
-  transition: .5s; }
 
 .luminousMode {
   background: #000;
@@ -189,5 +199,10 @@ footer {
     opacity: 1; }
   100% {
     opacity: 0; } }
+.ft-Wt {
+  color: #fff !important;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s; }
 
 /*# sourceMappingURL=watch.css.map */
