@@ -77,6 +77,10 @@
     </div>
   </div>
 
+  <div id="server">
+    <p>나 서버</p>
+
+  </div>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       setInterval(function () {
@@ -187,6 +191,7 @@
           stopbutton.classList.add('ft-Wt');
           analogbutton.setAttribute('data-name', 'unact');
           labBox__left.innerHTML="";
+          labNumber =0;
       })
      
       outButton.addEventListener('click', function () {
@@ -202,6 +207,7 @@
         timeBt.setAttribute('data-name',"noneLabFun");
         labBoxId.classList.remove('changeView');
         labBox__left.innerHTML='';
+        labNumber =0;
 
         noneActivBt();
         (tens>1)?clearInterval(Interval):false;
@@ -252,25 +258,10 @@
 
       }
 
-      // buttonStop.onclick = function () {
-      //   clearInterval(Interval);
-      // }
-
-      // buttonReset.onclick = function () {
-      //   clearInterval(Interval);
-      //   tens = "00";
-      //   seconds = "00";
-      //   appendTens.innerHTML = tens;
-      //   appendSeconds.innerHTML = seconds;
-      // }
-      // buttonStart.onclick = function () {
-      //   Interval = setInterval(startTimer, 10);
-      // }
-
-
-
         let labBox__left =document.getElementById('labBox__left');
         let labBox__right =document.getElementById('labBox__right');
+        let labNumber =0;
+        let server = document.getElementById('server')
 
       timeBt.addEventListener('click', function () {
         if (analogbutton.getAttribute('data-name') == "analog") {
@@ -284,14 +275,31 @@
 
         // lab active
         if(timeBt.getAttribute('data-name')=="actLabFun"){
+          labNumber++
+          (tens<1)?labNumber=0:false;
           
+          (labNumber<10)? labNumber= "0"+labNumber:labNumber=labNumber;
           let labRank = document.createElement('p');
-          let labTool = labMin.textContent+":"+labSec.textContent+":"+labTens.textContent;
+          let labTool = '랩 '+labNumber+' '+labMin.textContent+":"+labSec.textContent+":"+labTens.textContent;
           labRank.innerText=labTool;
           (tens>1)?labBox__left.prepend(labRank):false;
+          console.log(labNumber);
+
+          if(labBox__left.childElementCount > 10){
+            labBox__left.style.height="190px";
+            labBox__left.style.overflow="hidden";
+            let labBoxlastChild =labBox__left.lastElementChild;
+            server.prepend(labBoxlastChild);
+            console.log(labBoxlastChild);
+          console.log('no');
+            
+
+        }
 
         }
       })
+
+      
 
       let luminous = document.getElementById('luminous');
       luminous.addEventListener('click', function () {

@@ -239,4 +239,11 @@ footer {
       color: #bbb;
       font-size: 1rem; }
 
+#server {
+  border: 1px solid red; }
+  #server p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: blue; }
+
 /*# sourceMappingURL=watch.css.map */
