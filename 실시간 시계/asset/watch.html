@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="common/default.css">
   <link rel="stylesheet" href="scss/watch.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -30,16 +30,28 @@
           </ul>
         </header>
         <section class="main">
-          <!-- time -->
-          <div id="timeView" class="watch__main watch__main-style-v1">
-            <p id="time" class="time-style"></p>
-          </div>
+          <div class="showBox">
+            <!-- time -->
+            <div id="timeView" class="watch__main watch__main-style-v1">
+              <p id="time" class="time-style"></p>
+            </div>
 
-          <!-- lab -->
-          <div id="labView" class="lab__main watch__main-style-v1">
-            <p id="lab" class="lab-style">
-              00:00:00
-            </p>
+            <!-- lab -->
+            <div id="labView" class="lab__main watch__main-style-v1">
+              <p id="lab" class="lab-style">
+                <span id="min">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+              </p>
+            </div>
+          </div>
+          <div class="labBox">
+            <ul>
+              <li>
+                ss
+              </li>
+              <li>
+
+              </li>
+            </ul>
           </div>
         </section>
         <footer>
@@ -103,10 +115,16 @@
       let stopbutton = document.getElementById('stopbutton');
       let lab = document.getElementById('lab');
 
-      let timer;
-      let count = 0;
-      let divi = 100;
+      // let timer;
+      // let count = 00;
+      // let divi = 100;
 
+      // if (count.length == 1) {
+      //   count = '0' + count;
+      // }
+
+      // stopWatch = '00' + ':' + '00' + ':' + count;
+      // lab.innerText = stopWatch;
       // let labController = setInterval(function(){
       //   count += 1;
       //   min = count +1;
@@ -114,31 +132,27 @@
       //     count =0;
       //   }console.log(count);
       //   if(min%60==0){
-      //     console.log('min :',min, '분')
+      //     console.log('min :',min, '분');
       //   }
+      // },50)
 
+      let buttonList = document.querySelectorAll('.watch__controler-cont li');
+      console.log(buttonList);
 
-      // },50);
+      function activeBt() {
+        for (var i = 0; i < buttonList.length; i++) {
+          buttonList[i].style.width = "30%";
+        }
+      }
 
- let buttonList = document.querySelectorAll('.watch__controler-cont li');
-          console.log(buttonList);
-         function activeBt() {
-            for (var i = 0; i < buttonList.length; i++) {
-              buttonList[i].style.width = "30%";
+      function noneActivBt() {
+        for (var i = 0; i < buttonList.length; i++) {
+          buttonList[i].style.width = "47%";
+        }
+      }
 
-            }
-          }
-
-          function noneActivBt() {
-            for (var i = 0; i < buttonList.length; i++) {
-              buttonList[i].style.width = "47%";
-
-            }
-          }
 
       labBt.addEventListener('click', function (e) {
-        let outButton = document.getElementById('outButton');
-
 
         if (labBt.getAttribute('data-start') == "start") {
           labBt.firstElementChild.textContent = '시작';
@@ -152,25 +166,35 @@
           setTimeout(() => {
             outButton.classList.add('changeView');
           }, 500);
-         
-  
-         activeBt();
-         
-
-
-
-        } else if (labBt.getAttribute('data-start') == "stop") {
+          activeBt();
+        } 
+        else if (labBt.getAttribute('data-start') == "stop") {
           labBt.firstElementChild.textContent = '정지';
-          labBt.classList.add('stopColor');
-          labBt.setAttribute('data-start', "finish");
-          stopbutton.classList.add('ft-Wt');
+          labBt.setAttribute('data-start', "restart");
           analogbutton.setAttribute('data-name', 'unact');
           analogbutton.textContent = "랩";
 
+          Interval = setInterval(startTimer, 10);//timer start
 
-        } else {
-          labBt.firstElementChild.textContent = '종료';
-          labBt.firstElementChild.textContent = '스톱워치';
+        } 
+        else if (labBt.getAttribute('data-start') == "restart") {
+          labBt.firstElementChild.textContent = '재시작';
+          labBt.setAttribute('data-start', "stop");
+          analogbutton.setAttribute('data-name', 'unact');
+          analogbutton.textContent = "랩";
+
+          clearInterval(Interval);//timer stop
+
+        } 
+        else {
+          
+        }
+      })
+
+
+      let outButton = document.getElementById('outButton');
+      outButton.addEventListener('click',function(){
+        labBt.firstElementChild.textContent = '스톱워치';
           labBt.classList.remove('stopColor');
           labBt.setAttribute('data-start', 'start');
           stopbutton.classList.remove('ft-Wt');
@@ -181,11 +205,73 @@
           outButton.classList.remove('changeView');
 
           noneActivBt();
-        }
 
-
+        clearInterval(Interval);
+         tens = "00";
+         seconds = "00";
+         minit ="00";
+         labTens.innerHTML = tens;
+         labSec.innerHTML = seconds;
+         labMin.innerHTML= minit;
 
       })
+
+
+
+
+      let labMin =document.getElementById('min');
+      let labSec = document.getElementById('seconds');
+      let labTens = document.getElementById('tens');
+      var minit = 00;
+      var seconds = 00;
+      var tens = 00;
+
+      function startTimer() {
+        tens++;
+        if (tens < 9) {
+          labTens.innerHTML = "0" + tens;
+        }
+        if (tens > 9) {
+          labTens.innerHTML = tens;
+        }
+        if (tens > 99) {
+          seconds++;
+          labSec.innerHTML = "0" + seconds;
+          tens = 0;
+          labTens.innerHTML = "0" + 0;
+        }
+        if (seconds > 9) {
+          labSec.innerHTML = seconds;
+        }
+        if(seconds >59){
+          minit++;
+          labMin.innerText="0"+minit;
+          seconds =0;
+          seconds.innerHTML="+"+0;
+        }
+        if(minit>9){
+          labMin.innerText=minit;
+        }
+        
+
+      }
+      
+      // buttonStop.onclick = function () {
+      //   clearInterval(Interval);
+      // }
+
+      // buttonReset.onclick = function () {
+      //   clearInterval(Interval);
+      //   tens = "00";
+      //   seconds = "00";
+      //   appendTens.innerHTML = tens;
+      //   appendSeconds.innerHTML = seconds;
+      // }
+      // buttonStart.onclick = function () {
+      //   Interval = setInterval(startTimer, 10);
+      // }
+
+
 
       timeBt.addEventListener('click', function () {
         if (analogbutton.getAttribute('data-name') == "analog") {

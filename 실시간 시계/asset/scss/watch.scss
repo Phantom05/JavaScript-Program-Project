@@ -100,6 +100,10 @@ header{
 .watch__main-style-v1{
   padding: 0px 25px;
     .lab-style{
+      span{
+        color: #fff;
+        font-size: 4rem;
+      }
       color: #fff;
       font:{
         size:4rem;
@@ -236,4 +240,14 @@ footer{
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
+}
+
+
+// show box
+.showBox{
+  padding-top: 85px;
+}
+.labBox{
+  margin-top: 10px;
+  border: 1px solid blue;
 }
