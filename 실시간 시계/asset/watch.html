@@ -43,13 +43,11 @@
               </p>
             </div>
           </div>
-          <div class="labBox">
+          <div class="labBox" id="labBoxId">
             <ul>
-              <li>
-                ss
+              <li id="labBox__left">
               </li>
-              <li>
-
+              <li id="labBox__right">
               </li>
             </ul>
           </div>
@@ -63,7 +61,7 @@
               <button type="button" class="lumiBt"></button>
             </div>
             <ul class="watch__controler-cont">
-              <li class="controler__bt-v1" id="timeBt">
+              <li class="controler__bt-v1" id="timeBt" data-name="noneLabFun">
                 <button type="button" class="controler__bt button-v1" id="analogbutton" data-name="analog">아날로그</button>
               </li>
               <li id="labBt" class="controler__bt-v1" data-start="start">
@@ -119,6 +117,7 @@
       let lab = document.getElementById('lab');
       let resetBt = document.getElementById('resetBt');
       let outButton = document.getElementById('outButton');
+      let labBoxId =document.getElementById('labBoxId');
 
       let buttonList = document.querySelectorAll('.watch__controler-cont li');
       console.log(buttonList);
@@ -145,6 +144,9 @@
           analogbutton.textContent = "랩";
           timeView.classList.add('changeClose');
           labView.classList.add('changeView');
+          timeBt.setAttribute('data-name','actLabFun'); // labBt act
+          labBoxId.classList.add('changeView');
+
           setTimeout(() => {
             outButton.classList.add('changeView');
             resetBt.classList.add('changeView');
@@ -184,6 +186,7 @@
         labBt.setAttribute('data-start', "stop");
           stopbutton.classList.add('ft-Wt');
           analogbutton.setAttribute('data-name', 'unact');
+          labBox__left.innerHTML="";
       })
      
       outButton.addEventListener('click', function () {
@@ -196,7 +199,9 @@
         labBt.classList.remove('stopColor');
         analogbutton.textContent='아날로그';
         analogbutton.setAttribute('data-name','analog');
-        
+        timeBt.setAttribute('data-name',"noneLabFun");
+        labBoxId.classList.remove('changeView');
+        labBox__left.innerHTML='';
 
         noneActivBt();
         (tens>1)?clearInterval(Interval):false;
@@ -264,6 +269,9 @@
 
 
 
+        let labBox__left =document.getElementById('labBox__left');
+        let labBox__right =document.getElementById('labBox__right');
+
       timeBt.addEventListener('click', function () {
         if (analogbutton.getAttribute('data-name') == "analog") {
           analogbutton.textContent = "디지털";
@@ -273,6 +281,16 @@
           timeBt.firstElementChild.textContent = '아날로그';
           analogbutton.setAttribute('data-name', 'analog');
         };
+
+        // lab active
+        if(timeBt.getAttribute('data-name')=="actLabFun"){
+          
+          let labRank = document.createElement('p');
+          let labTool = labMin.textContent+":"+labSec.textContent+":"+labTens.textContent;
+          labRank.innerText=labTool;
+          (tens>1)?labBox__left.prepend(labRank):false;
+
+        }
       })
 
       let luminous = document.getElementById('luminous');

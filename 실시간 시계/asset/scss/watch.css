@@ -90,7 +90,8 @@ header {
     padding: 5px 0; }
     .watch__main-style-v1 .lab-style span {
       color: #fff;
-      font-size: 4rem; }
+      font-size: 4rem;
+      font-weight: 800; }
 
 .stopColor {
   transition: .5s;
@@ -226,7 +227,16 @@ footer {
   padding-top: 85px; }
 
 .labBox {
+  display: none;
   margin-top: 10px;
   border: 1px solid blue; }
+  .labBox ul {
+    overflow: hidden; }
+  .labBox li {
+    width: 50%;
+    float: left; }
+    .labBox li p {
+      color: #bbb;
+      font-size: 1rem; }
 
 /*# sourceMappingURL=watch.css.map */

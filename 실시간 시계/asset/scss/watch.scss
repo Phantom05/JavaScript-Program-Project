@@ -103,6 +103,7 @@ header{
       span{
         color: #fff;
         font-size: 4rem;
+        font-weight: 800;
       }
       color: #fff;
       font:{
@@ -263,6 +264,18 @@ footer{
   padding-top: 85px;
 }
 .labBox{
+  display: none;
   margin-top: 10px;
   border: 1px solid blue;
+  ul{
+    overflow: hidden;
+  }
+  li{
+    width: 50%;
+    float: left;
+    p{
+      color: #bbb;
+      font-size: 1rem;
+    }
+  }
 }
