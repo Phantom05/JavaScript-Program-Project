@@ -18,6 +18,7 @@ header {
   width: 400px;
   padding: 20px;
   border-radius: 20px;
+  -webkit-box-shadow: 1px 5px 10px rgba(210, 210, 210, 0.5);
   box-shadow: 1px 5px 10px rgba(210, 210, 210, 0.5); }
 
 .watch-style-v1 {
@@ -28,7 +29,7 @@ header {
   border-radius: 20px; }
 
 .watch__inner-style {
-  background: #000; }
+  background: linear-gradient(to right, #1f1f1f, #3b3b3b); }
 
 .header {
   overflow: hidden;
@@ -52,8 +53,15 @@ header {
 
 .changeView {
   display: block !important;
+  -webkit-animation: aa 1s forwards;
   animation: aa 1s forwards; }
 
+@-webkit-keyframes aa {
+  0% {
+    display: block !important;
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 @keyframes aa {
   0% {
     display: block !important;
@@ -72,8 +80,24 @@ header {
     font-size: 4rem;
     text-align: center;
     border-bottom: 1px solid gray;
-    padding: 5px 0; }
+    padding: 5px 0;
+    opacity: 0;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    -webkit-animation: mainTime 1s 1s forwards linear;
+    animation: mainTime 1s 1s forwards linear; }
 
+@-webkit-keyframes mainTime {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes mainTime {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 .lab__main {
   display: none;
   position: absolute;
@@ -94,6 +118,8 @@ header {
       font-weight: 800; }
 
 .stopColor {
+  -webkit-transition: .5s;
+  -o-transition: .5s;
   transition: .5s;
   background: red !important; }
 
@@ -110,6 +136,8 @@ footer {
     width: 47%;
     border-radius: 15px;
     margin: 3px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
     cursor: pointer; }
     .watch__controler-cont li:hover button {
@@ -121,6 +149,8 @@ footer {
     background: #424040; }
   .watch__controler-cont .controler__bt-v2 {
     background: rgba(35, 207, 136, 0.502); }
+  .watch__controler-cont #timeBt button:active {
+    color: #505050; }
   .watch__controler-cont .controler__bt {
     padding: 15px;
     text-align: center;
@@ -233,7 +263,8 @@ footer {
     overflow: hidden; }
   .labBox li {
     width: 50%;
-    float: left; }
+    float: left;
+    text-align: center; }
     .labBox li p {
       font-size: 1rem;
       color: #fff; }
@@ -243,7 +274,7 @@ footer {
     .labBox li:first-child {
       padding-left: 25px; }
     .labBox li:last-child {
-      padding-right: 25px; }
+      padding-right: 40px; }
 
 .labBoxSendCont {
   height: 190px;

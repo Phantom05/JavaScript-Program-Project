@@ -18,7 +18,8 @@ header{
   width: 400px;
   padding: 20px;
   border-radius: 20px;
-  box-shadow :1px 5px 10px rgba(210,210,210,.5);
+  -webkit-box-shadow :1px 5px 10px rgba(210,210,210,.5);
+          box-shadow :1px 5px 10px rgba(210,210,210,.5);
 
 }
 .watch-style-v1{
@@ -29,7 +30,8 @@ header{
   border-radius: 20px;
 }
 .watch__inner-style{
-  background: #000;
+  background: linear-gradient(to right,rgb(31, 31, 31), rgb(59, 59, 59));
+
 }
 // header
 .header{
@@ -63,7 +65,12 @@ header{
 }
 .changeView{
   display: block !important;
-  animation: aa 1s forwards;
+  -webkit-animation: aa 1s forwards;
+          animation: aa 1s forwards;
+}
+@-webkit-keyframes aa{
+  0%{display: block !important;opacity: 0;}
+  100%{opacity : 1}
 }
 @keyframes aa{
   0%{display: block !important;opacity: 0;}
@@ -85,7 +92,22 @@ header{
       text-align: center;
       border-bottom: 1px solid gray;
       padding: 5px 0;
+      opacity: 0;
+      -webkit-transition: 1s;
+      -o-transition: 1s;
+      transition: 1s;
+      -webkit-animation: mainTime 1s 1s forwards linear;
+              animation: mainTime 1s 1s forwards linear;
     }
+    
+}
+@-webkit-keyframes mainTime{
+  0%{opacity: 0}
+  100%{opacity: 1}
+}
+@keyframes mainTime{
+  0%{opacity: 0}
+  100%{opacity: 1}
 }
 
 
@@ -116,6 +138,8 @@ header{
 }
 
 .stopColor{
+  -webkit-transition: .5s;
+  -o-transition: .5s;
   transition: .5s;
   background: red !important;
 }
@@ -136,6 +160,8 @@ footer{
     width: 47%;
     border-radius: 15px;
     margin: 3px;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
     transition: .5s;
     cursor: pointer;
     &:hover button{
@@ -151,7 +177,9 @@ footer{
   .controler__bt-v2{
     background: rgba(35, 207, 136, 0.502);
   }
-
+#timeBt button:active{
+  color:rgb(80, 80, 80);
+}
   .controler__bt{
     padding: 15px;
     text-align: center;
@@ -273,6 +301,7 @@ footer{
   li{
     width: 50%;
     float: left;
+    text-align: center;
     p{
       
       font-size: 1rem;
@@ -286,7 +315,7 @@ footer{
       padding-left: 25px;
     }
     &:last-child{
-      padding-right: 25px;
+      padding-right: 40px;
     }
   }
 }
