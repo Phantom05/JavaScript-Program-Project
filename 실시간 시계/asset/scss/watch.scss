@@ -9,7 +9,23 @@ body{
 }
 .main{
   position: relative;
-  height: 300px;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.analog_main{
+  color: red;
+  -webkit-animation: analogNone 1s forwards;
+          animation: analogNone 1s forwards;
+
+}
+@-webkit-keyframes analogNone{
+  0%{opacity: 1;}
+  100%{opacity: 0;  display: none;}
+}
+@keyframes analogNone{
+  0%{opacity: 1;}
+  100%{opacity: 0;  display: none;}
 }
 header{
   position: relative;
@@ -30,8 +46,13 @@ header{
   border-radius: 20px;
 }
 .watch__inner-style{
+  position: relative;
+  overflow: hidden;
+  background: -webkit-gradient(linear,left top, right top,from(rgb(31, 31, 31)), to(rgb(59, 59, 59)));
+  background: -webkit-linear-gradient(left,rgb(31, 31, 31), rgb(59, 59, 59));
+  background: -o-linear-gradient(left,rgb(31, 31, 31), rgb(59, 59, 59));
   background: linear-gradient(to right,rgb(31, 31, 31), rgb(59, 59, 59));
-
+  height: 423px;
 }
 // header
 .header{
@@ -109,7 +130,7 @@ header{
   0%{opacity: 0}
   100%{opacity: 1}
 }
-
+ 
 
 // lab
 .lab__main{
@@ -146,7 +167,10 @@ header{
 
 //footer
 footer{
-  position: relative;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 90%;
 
 }
 // controler
@@ -324,7 +348,7 @@ footer{
   overflow: hidden;
 
 }
-
+// server
 #server{
   p,span{
 
@@ -334,4 +358,55 @@ footer{
     
   }
   border: 1px solid red;
+}
+
+// main analog
+.aniChangeAanl{
+  position: absolute;
+  left: 20px;
+  top: 50;
+  opacity: 1;
+  -webkit-animation: chageMainDigi 1s forwards;
+          animation: chageMainDigi 1s forwards;
+}
+@-webkit-keyframes chageMainDigi{
+  0%{opacity: 1;left: 0;}
+  100%{opacity: 0;left: -400px;}
+}
+@keyframes chageMainDigi{
+  0%{opacity: 1;left: 0;}
+  100%{opacity: 0;left: -400px;}
+}
+.aniChangeDigi{
+  position: absolute;
+  left: 20px;
+  top: 50;
+  opacity: 0;
+  -webkit-animation: chageMainAnal 1s forwards;
+          animation: chageMainAnal 1s forwards;
+}
+@-webkit-keyframes chageMainAnal{
+  0%{opacity: 0;left: -400px;}
+  100%{opacity: 1;left: -0;}
+  
+}
+@keyframes chageMainAnal{
+  0%{opacity: 0;left: -400px;}
+  100%{opacity: 1;left: -0;}
+  
+}
+
+.analog_Show{
+  display: block;
+  opacity: 0;
+  -webkit-animation: showAlog 1s 1s forwards;
+          animation: showAlog 1s 1s forwards;
+}
+@-webkit-keyframes showAlog{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@keyframes showAlog{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
 }

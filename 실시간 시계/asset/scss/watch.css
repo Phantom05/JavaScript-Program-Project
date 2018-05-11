@@ -9,8 +9,27 @@ body {
 
 .main {
   position: relative;
-  height: 300px; }
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s; }
 
+.analog_main {
+  color: red;
+  -webkit-animation: analogNone 1s forwards;
+  animation: analogNone 1s forwards; }
+
+@-webkit-keyframes analogNone {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    display: none; } }
+@keyframes analogNone {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    display: none; } }
 header {
   position: relative; }
 
@@ -29,7 +48,13 @@ header {
   border-radius: 20px; }
 
 .watch__inner-style {
-  background: linear-gradient(to right, #1f1f1f, #3b3b3b); }
+  position: relative;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, right top, from(#1f1f1f), to(#3b3b3b));
+  background: -webkit-linear-gradient(left, #1f1f1f, #3b3b3b);
+  background: -o-linear-gradient(left, #1f1f1f, #3b3b3b);
+  background: linear-gradient(to right, #1f1f1f, #3b3b3b);
+  height: 423px; }
 
 .header {
   overflow: hidden;
@@ -124,7 +149,10 @@ header {
   background: red !important; }
 
 footer {
-  position: relative; }
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 90%; }
 
 .watch__controler-cont {
   display: block;
@@ -286,5 +314,66 @@ footer {
     font-size: 2rem;
     font-weight: bold;
     color: blue; }
+
+.aniChangeAanl {
+  position: absolute;
+  left: 20px;
+  top: 50;
+  opacity: 1;
+  -webkit-animation: chageMainDigi 1s forwards;
+  animation: chageMainDigi 1s forwards; }
+
+@-webkit-keyframes chageMainDigi {
+  0% {
+    opacity: 1;
+    left: 0; }
+  100% {
+    opacity: 0;
+    left: -400px; } }
+@keyframes chageMainDigi {
+  0% {
+    opacity: 1;
+    left: 0; }
+  100% {
+    opacity: 0;
+    left: -400px; } }
+.aniChangeDigi {
+  position: absolute;
+  left: 20px;
+  top: 50;
+  opacity: 0;
+  -webkit-animation: chageMainAnal 1s forwards;
+  animation: chageMainAnal 1s forwards; }
+
+@-webkit-keyframes chageMainAnal {
+  0% {
+    opacity: 0;
+    left: -400px; }
+  100% {
+    opacity: 1;
+    left: -0; } }
+@keyframes chageMainAnal {
+  0% {
+    opacity: 0;
+    left: -400px; }
+  100% {
+    opacity: 1;
+    left: -0; } }
+.analog_Show {
+  display: block;
+  opacity: 0;
+  -webkit-animation: showAlog 1s 1s forwards;
+  animation: showAlog 1s 1s forwards; }
+
+@-webkit-keyframes showAlog {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes showAlog {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=watch.css.map */
