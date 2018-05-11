@@ -21,7 +21,7 @@
         <header>
           <span id="rec"></span>
           <ul class="header">
-            <li class="header__list  header__title header__title-v1">
+            <li class="header__list  header__title header__title-v1" id="titleFont">
               디지털
             </li>
             <li class="header__list header__date header__title-v1" id="dateNow">
@@ -51,6 +51,8 @@
               </li>
             </ul>
           </div>
+
+
         </section>
         <section id="main__analog" class="analog_main">
           ssss
@@ -58,7 +60,7 @@
         <footer>
           <div class="watch__controler">
             <div class="resetCont changeClose" id="resetBt">
-              reset
+              리셋
             </div>
             <div class="controlder_lumi" id="luminous">
               <button type="button" class="lumiBt"></button>
@@ -82,7 +84,12 @@
 
   <div id="server">
     <p>나 서버</p>
-
+    <div id="bbb">
+      <div id="analogSec"></div>
+      <div id="analogMin"></div>
+      <div id="analohHours"></div>
+    </div>
+    
   </div>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -125,6 +132,7 @@
       let resetBt = document.getElementById('resetBt');
       let outButton = document.getElementById('outButton');
       let labBoxId =document.getElementById('labBoxId');
+      let titleFont=document.getElementById('titleFont');
 
       let buttonList = document.querySelectorAll('.watch__controler-cont li');
       console.log(buttonList);
@@ -140,12 +148,12 @@
         }
       }
 
-//timeView  aniChangeDigi
       labBt.addEventListener('click', function (e) {
 
         if (labBt.getAttribute('data-start') == "start") {
           labBt.firstElementChild.textContent = '시작';
-          labBt.classList.add('stopColor');
+
+          labBt.classList.add('startColor');
           labBt.setAttribute('data-start', "stop");
           stopbutton.classList.add('ft-Wt');
           analogbutton.setAttribute('data-name', 'unact');
@@ -154,6 +162,7 @@
           labView.classList.add('changeView');
           timeBt.setAttribute('data-name','actLabFun'); // labBt act
           labBoxId.classList.add('changeView');
+          titleFont.textContent="디지털";
 
           if(timeView.classList.contains('aniChangeAanl')){
             timeView.classList.remove('aniChangeAanl');
@@ -172,6 +181,7 @@
           }, 500);
           activeBt();
         } else if (labBt.getAttribute('data-start') == "stop") {
+          labBt.classList.replace('startColor','stopColor');
           labBt.firstElementChild.textContent = '정지';
           labBt.setAttribute('data-start', "restart");
           analogbutton.setAttribute('data-name', 'unact');
@@ -181,6 +191,7 @@
 
         } else if (labBt.getAttribute('data-start') == "restart") {
           labBt.firstElementChild.textContent = '재시작';
+          labBt.classList.replace('stopColor','startColor');
           labBt.setAttribute('data-start', "stop");
           analogbutton.setAttribute('data-name', 'unact');
           analogbutton.textContent = "랩";
@@ -208,6 +219,8 @@
           labBox__left.innerHTML="";
           labBox__right.innerHTML='';
           labNumber =0;
+
+          labBt.classList.replace('stopColor','startColor');
       })
      
       outButton.addEventListener('click', function () {
@@ -235,6 +248,9 @@
         labTens.innerHTML = tens;
         labSec.innerHTML = seconds;
         labMin.innerHTML = minit;
+
+        labBt.classList.remove('startColor');
+        titleFont.textContent="디지털";
 
       })
 
@@ -292,6 +308,8 @@
           timeView.classList.add('aniChangeAanl');
           timeView.classList.remove('aniChangeDigi');
           main__analog.classList.add('analog_Show');
+          titleFont.textContent ='아날로그';
+          
 
 
         } else if (analogbutton.getAttribute('data-name') == "digital") {
@@ -300,6 +318,7 @@
           timeView.classList.remove('aniChangeAanl');
           timeView.classList.add('aniChangeDigi');
           main__analog.classList.remove('analog_Show');
+          titleFont.textContent ='디지털';
         };
 
         // lab active
@@ -339,9 +358,32 @@
         rec.classList.toggle('lightBet');
       })
 
-      let a =document.getElementsByClassName('watch__inner-style')[0];
+      // analog watch
+      
+      let bbb =document.getElementById('bbb');
+      let analogSec =document.getElementById('analogSec');
+      let analogMin = document.getElementById('analogMin');
+      let analohHours =document.getElementById('analohHours');
 
-      console.log(a.clientHeight,a.scrollHeight);
+      let secChim = setInterval(function(){
+		  let timeGet = new Date();
+		  let timeGetHours = timeGet.getHours(); 
+		  let timeGetMin = timeGet.getMinutes(); 
+		  let timeGetSec = timeGet.getSeconds(); 
+        
+
+      if( timeGetHours > 12 ) timeGetHours = timeGetHours - 12; 
+        
+		  let dh = (( timeGetHours * 30 ) + ( timeGetMin / 2 )) + 90;
+		  dh = parseInt( dh ); 
+		  let dm = (timeGetMin * 6) + 90; 
+      let ds = (timeGetSec * 6) + 90; 
+
+      analogSec.style.transform = "rotate("+ds+"deg)";
+      analogMin.style.transform = "rotate("+dm+"deg)";
+      analohHours.style.transform = "rotate("+dh+"deg)";
+        })
+
     })
   </script>
 </body>
