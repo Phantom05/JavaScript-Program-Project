@@ -13,6 +13,9 @@ body {
   -o-transition: 1s;
   transition: 1s; }
 
+#main__analog {
+  display: none; }
+
 .analog_main {
   color: red;
   -webkit-animation: analogNone 1s forwards;
@@ -148,6 +151,10 @@ header {
   transition: .5s;
   background: red !important; }
 
+.startColor {
+  background: #085508 !important;
+  transition: .5s; }
+
 footer {
   position: absolute;
   left: 20px;
@@ -279,7 +286,10 @@ footer {
   cursor: pointer;
   border-radius: 15px;
   text-align: center;
-  color: #fff; }
+  color: rgba(255, 255, 255, 0.678);
+  font-weight: bold; }
+  .resetCont:hover {
+    color: #fff; }
 
 .showBox {
   padding-top: 85px; }
@@ -307,13 +317,6 @@ footer {
 .labBoxSendCont {
   height: 190px;
   overflow: hidden; }
-
-#server {
-  border: 1px solid red; }
-  #server p, #server span {
-    font-size: 2rem;
-    font-weight: bold;
-    color: blue; }
 
 .aniChangeAanl {
   position: absolute;
@@ -375,5 +378,66 @@ footer {
     opacity: 0; }
   100% {
     opacity: 1; } }
+#server {
+  border: 1px solid red; }
+  #server p, #server span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: blue; }
+
+#bbb {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: black; }
+  #bbb #analogSec {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 2px;
+    background: orange;
+    transform: rotate(0); }
+    #bbb #analogSec:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: orange; }
+  #bbb #analogMin {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 5px;
+    border: 1px solid white;
+    transform: rotate(0); }
+    #bbb #analogMin:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: blue; }
+  #bbb #analohHours {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 5px;
+    border: 1px solid blue;
+    transform: rotate(0); }
+    #bbb #analohHours:after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: white; }
 
 /*# sourceMappingURL=watch.css.map */
