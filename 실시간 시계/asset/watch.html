@@ -29,8 +29,8 @@
             </li>
           </ul>
         </header>
-        <section class="main">
-          <div class="showBox">
+        <section class="main" id="main__digital">
+          <div class="showBox" id="digitalShowBox">
             <!-- time -->
             <div id="timeView" class="watch__main watch__main-style-v1">
               <p id="time" class="time-style"></p>
@@ -51,6 +51,9 @@
               </li>
             </ul>
           </div>
+        </section>
+        <section id="main__analog" class="analog_main">
+          ssss
         </section>
         <footer>
           <div class="watch__controler">
@@ -137,6 +140,7 @@
         }
       }
 
+//timeView  aniChangeDigi
       labBt.addEventListener('click', function (e) {
 
         if (labBt.getAttribute('data-start') == "start") {
@@ -150,6 +154,17 @@
           labView.classList.add('changeView');
           timeBt.setAttribute('data-name','actLabFun'); // labBt act
           labBoxId.classList.add('changeView');
+
+          if(timeView.classList.contains('aniChangeAanl')){
+            timeView.classList.remove('aniChangeAanl');
+            console.log('aniChangeAanl')
+          }else if(timeView.classList.contains('aniChangeDigi')){
+            timeView.classList.remove('aniChangeDigi');
+            console.log('aniChangeDigi')
+          }else{
+            console.log('deefault')
+          }
+          
 
           setTimeout(() => {
             outButton.classList.add('changeView');
@@ -263,16 +278,28 @@
         let labBox__left =document.getElementById('labBox__left');
         let labBox__right =document.getElementById('labBox__right');
         let labNumber =0;
-        let server = document.getElementById('server')
+        let server = document.getElementById('server');
+
+        let main__digital =document.getElementById('main__digital');
+        let main__analog =document.getElementById('main__analog');
+
+        let digitalShowBox =document.getElementById('digitalShowBox');
 
       timeBt.addEventListener('click', function () {
         if (analogbutton.getAttribute('data-name') == "analog") {
           analogbutton.textContent = "디지털";
           analogbutton.setAttribute('data-name', 'digital');
+          timeView.classList.add('aniChangeAanl');
+          timeView.classList.remove('aniChangeDigi');
+          main__analog.classList.add('analog_Show');
+
 
         } else if (analogbutton.getAttribute('data-name') == "digital") {
           timeBt.firstElementChild.textContent = '아날로그';
           analogbutton.setAttribute('data-name', 'analog');
+          timeView.classList.remove('aniChangeAanl');
+          timeView.classList.add('aniChangeDigi');
+          main__analog.classList.remove('analog_Show');
         };
 
         // lab active
@@ -300,11 +327,8 @@
               server.prepend(labBoxlastChildRight);
             }
         }
-
         }
       })
-
-      
 
       let luminous = document.getElementById('luminous');
       luminous.addEventListener('click', function () {
@@ -315,7 +339,9 @@
         rec.classList.toggle('lightBet');
       })
 
+      let a =document.getElementsByClassName('watch__inner-style')[0];
 
+      console.log(a.clientHeight,a.scrollHeight);
     })
   </script>
 </body>
