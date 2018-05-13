@@ -34,6 +34,35 @@
             <!-- time -->
             <div id="timeView" class="watch__main watch__main-style-v1">
               <p id="time" class="time-style"></p>
+              
+              <div class="watch__main_3Box">
+                <ul>
+                  <li>
+                    <div class="digitalBox ">
+                      <div class="dgBox_v1">
+
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="digitalBox">
+                        <div class="dgBox_v2">
+                        
+                          </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="digitalBox">
+                        <div class="dgBox_v3">
+                        
+                          </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="watch__main_dataBox">
+                  <div id="chartdiv"></div>		
+              </div>
             </div>
 
             <!-- lab -->
@@ -126,9 +155,18 @@
   <div id="server">
     <p>나 서버</p>
     
+    <!-- <audio src="https://youtu.be/snsAFlCC7TU" id="alam">aa</audio> -->
+    <audio src="src/Shape Of You - J.fla.m4r" id="alamA"></audio>
+
+    
     
   </div>
-
+  <div id="alam">클릭</div>
+  <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+  <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  
+  <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       setInterval(function () {
@@ -171,6 +209,7 @@
       let outButton = document.getElementById('outButton');
       let labBoxId =document.getElementById('labBoxId');
       let titleFont=document.getElementById('titleFont');
+      let analogWatch =document.getElementById('analogWatch');
 
       let buttonList = document.querySelectorAll('.watch__controler-cont li');
       console.log(buttonList);
@@ -349,7 +388,7 @@
           main__analog.classList.add('analog_Show');
           titleFont.textContent ='아날로그';
           main__analog.classList.remove('analog_Close');
-         
+          analogWatch.classList.remove('analog_Close');
           
 
 
@@ -362,6 +401,7 @@
           titleFont.textContent ='디지털';
           main__analog.classList.add('analog_Close');
           main__analog.classList.remove('changeClose');
+          analogWatch.classList.add('analog_Close');
          
 
   
@@ -382,12 +422,12 @@
           (tens>1)?labBox__left.prepend(labRank):false;
           console.log(labNumber);
 
-          if(labBox__left.childElementCount > 10){
+          if(labBox__left.childElementCount > 13){
             labBox__left.classList.add('labBoxSendCont');
             let labBoxlastChildLeft =labBox__left.lastElementChild;
             labBox__right.prepend(labBoxlastChildLeft);
             let labBoxlastChildRight = labBox__right.lastElementChild;
-            if(labBox__right.childElementCount > 10){
+            if(labBox__right.childElementCount > 13){
               labBox__right.classList.add('labBoxSendCont');
               server.prepend(labBoxlastChildRight);
             }
@@ -406,7 +446,7 @@
 
       // analog watch
 
-      let analogWatch =document.getElementById('analogWatch');
+      
       let analogSec =document.getElementById('analogSec');
       let analogMin = document.getElementById('analogMin');
       let analohHours =document.getElementById('analohHours');
@@ -438,8 +478,101 @@
 
 
 
+/*
+js chart
+*/
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "serial",
+  "addClassNames": true,
+  "theme": "light",
+  "autoMargins": false,
+  "marginLeft": 30,
+  "marginRight": 8,
+  "marginTop": 10,
+  "marginBottom": 26,
+  "balloon": {
+    "adjustBorderColor": false,
+    "horizontalPadding": 10,
+    "verticalPadding": 8,
+    "color": "#ffffff"
+  },
 
+  "dataProvider": [ {
+    "year": 2009,
+    "income": 23.5,
+    "expenses": 21.1
+  }, {
+    "year": 2010,
+    "income": 26.2,
+    "expenses": 30.5
+  }, {
+    "year": 2011,
+    "income": 30.1,
+    "expenses": 34.9
+  }, {
+    "year": 2012,
+    "income": 29.5,
+    "expenses": 31.1
+  }, {
+    "year": 2013,
+    "income": 30.6,
+    "expenses": 28.2,
+    "dashLengthLine": 5
+  }, {
+    "year": 2014,
+    "income": 34.1,
+    "expenses": 32.9,
+    "dashLengthColumn": 5,
+    "alpha": 0.2,
+    "additional": "(projection)"
+  } ],
+  "valueAxes": [ {
+    "axisAlpha": 0,
+    "position": "left"
+  } ],
+  "startDuration": 1,
+  "graphs": [ {
+    "alphaField": "alpha",
+    "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+    "fillAlphas": 1,
+    "title": "Income",
+    "type": "column",
+    "valueField": "income",
+    "dashLengthField": "dashLengthColumn"
+  }, {
+    "id": "graph2",
+    "balloonText": "<span style='font-size:12px;'>[[title]] in [[category]]:<br><span style='font-size:20px;'>[[value]]</span> [[additional]]</span>",
+    "bullet": "round",
+    "lineThickness": 3,
+    "bulletSize": 7,
+    "bulletBorderAlpha": 1,
+    "bulletColor": "#FFFFFF",
+    "useLineColorForBulletBorder": true,
+    "bulletBorderThickness": 3,
+    "fillAlphas": 0,
+    "lineAlpha": 1,
+    "title": "Expenses",
+    "valueField": "expenses",
+    "dashLengthField": "dashLengthLine"
+  } ],
+  "categoryField": "year",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "axisAlpha": 0,
+    "tickLength": 0
+  },
+  "export": {
+    "enabled": true
+  }
+} );
+
+let alamA =document.getElementById('alamA');
+let alam = document.getElementById('alam');
+alam.addEventListener('click',function(){
+  alamA.play();
+})
   </script>
+
 </body>
 
 </html>

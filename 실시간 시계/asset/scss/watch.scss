@@ -33,7 +33,6 @@ body {
   }
   100% {
     opacity: 0;
-    display: none;
   }
 }
 
@@ -43,7 +42,6 @@ body {
   }
   100% {
     opacity: 0;
-    display: none;
   }
 }
 
@@ -75,7 +73,7 @@ header {
   background: -webkit-linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
   background: -o-linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
   background: linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
-  height: 423px;
+  height: 500px;
 }
 
 // header
@@ -392,7 +390,179 @@ footer {
     color: #fff;
   }
 }
+// digital watch
 
+.watch__main_3Box{
+  position: relative;
+  // border: 1px solid red;
+  text-align: center;
+  margin-top: 20px;
+  ul{
+    display: inline-block;
+    overflow: hidden;
+    li{
+      float: left;
+    
+      &:first-child{
+        opacity: 0;
+        animation: showDgBoxV1 1.5s 1.5s forwards ease;
+        @keyframes showDgBoxV1 {
+          0%{
+            opacity: 0;
+          }
+          100%{
+            opacity: 1;
+          }
+        }
+      }
+
+      &:nth-child(2){
+        opacity: 0;
+        animation: showDgBoxV2 1.5s 1.8s forwards ease;
+        @keyframes showDgBoxV2 {
+          0%{
+            opacity: 0;
+          }
+          100%{
+            opacity: 1;
+          }
+        }
+      }
+
+      &:last-child{
+        opacity: 0;
+        animation: showDgBoxV3 1.5s 2.1s forwards ease;
+        @keyframes showDgBoxV3 {
+          0%{
+            opacity: 0;
+          }
+          100%{
+            opacity: 1;
+          }
+          
+        }
+      }
+    }
+  }
+}
+.digitalBox{
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 5px;
+  text-align: center;
+  background: url(../src/subdial_v4.png),black;
+  background-size: cover;
+  //left
+  .dgBox_v1{
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%,-50%);
+    background: url(../src/subdial_v9.png);
+    background-size: cover;
+    &:after{
+      display: block;
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 2px;
+      right: 0%;
+      top: 50%;
+      background: orange;
+      transform: translateY(-50%) rotate(0);
+      transform-origin: left;
+      animation: dgMiddleChim1 1s 4s forwards;
+    }
+    @keyframes dgMiddleChim1 {
+      0%{transform: rotate(0)}
+      50%{transform: rotate(324deg)}
+      100%{transform: rotate(-55deg)}
+      
+    }
+  }
+  //middle
+  .dgBox_v2{
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%,-50%);
+    background: url(../src/subdial_v11.png);
+    background-size: cover;
+
+    &:after{
+      display: block;
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 2px;
+      right: 0%;
+      top: 50%;
+      background: orange;
+      transform: translateY(-50%) rotate(0);
+      transform-origin: left;
+      animation: dgMiddleChim2 1s 4s forwards;
+    }
+    @keyframes dgMiddleChim2 {
+      0%{transform: rotate(0)}
+      50%{transform: rotate(684deg)}
+      100%{transform: rotate(50deg)}
+      
+    }
+  }
+  //right
+  .dgBox_v3{
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%,-50%);
+    background: url(../src/subdial_v10.png);
+    background-size: cover;
+    &:after{
+      display: block;
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 2px;
+      right: 0%;
+      top: 50%;
+      background: orange;
+      transform: translateY(-50%) rotate(0);
+      transform-origin: left;
+      animation: dgMiddleChim3 1s 4s forwards;
+    }
+    @keyframes dgMiddleChim3 {
+      0%{transform: rotate(0)}
+      50%{transform: rotate(527deg)}
+      100%{transform: rotate(190deg)}
+      
+    }
+  }
+}
+
+#chartdiv {
+  position: absolute;
+  width: 95%;
+  height: 200px;
+  top: 95%;
+  left: 0;
+  opacity: 0;
+  animation: chartAni 3s 3s forwards ease;
+}	
+@keyframes chartAni{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
 // show box
 .showBox {
   padding-top: 85px;
@@ -426,7 +596,7 @@ footer {
 }
 
 .labBoxSendCont {
-  height: 190px;
+  height: 245px;
   overflow: hidden;
 }
 
@@ -519,13 +689,14 @@ footer {
 }
 .analog_Close{
   opacity: 1;
-  animation: closeAnalog 2s .2s forwards;
+  animation: closeAnalog 3s .2s forwards;
 }
 @keyframes closeAnalog{
   0%{opacity: 1;}
   25%{opacity: 0;}
   50%{opacity: 0;}
-  100%{opacity: 0;display: none;}
+  75%{opacity: 0;}
+  100%{opacity: 0;height: 0;}
 }
 // server
 #server {
@@ -536,6 +707,7 @@ footer {
   border: 1px solid red;
 }
 
+//analog watch
 #analogWatch {
   position: relative;
   width: 300px;
@@ -759,7 +931,7 @@ footer {
       border: 2px solid transparent;
       border-top-color: rgba(255, 174, 0,.5);
       border-bottom-color: rgba(255, 208, 0,.5);
-      animation: subdialBd 2s .5s linear forwards;
+      animation: subdialBd 2s 1.2s linear forwards;
     }
   }
   .subdial__v3{
