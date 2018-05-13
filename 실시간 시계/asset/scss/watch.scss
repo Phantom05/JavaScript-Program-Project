@@ -1,191 +1,236 @@
-body{
+body {
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
 }
-.wrap{
+
+.wrap {
   width: 400px;
   margin: 30px auto;
 }
-.main{
+
+.main {
   position: relative;
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
 }
-#main__analog{
+
+#main__analog {
   display: none;
 }
-.analog_main{
+
+.analog_main {
   color: red;
   -webkit-animation: analogNone 1s forwards;
-          animation: analogNone 1s forwards;
+  animation: analogNone 1s forwards;
+}
 
+@-webkit-keyframes analogNone {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
-@-webkit-keyframes analogNone{
-  0%{opacity: 1;}
-  100%{opacity: 0;  display: none;}
+
+@keyframes analogNone {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
-@keyframes analogNone{
-  0%{opacity: 1;}
-  100%{opacity: 0;  display: none;}
-}
-header{
+
+header {
   position: relative;
 }
-.watch__container{
+
+.watch__container {
   width: 400px;
   padding: 20px;
   border-radius: 20px;
-  -webkit-box-shadow :1px 5px 10px rgba(210,210,210,.5);
-          box-shadow :1px 5px 10px rgba(210,210,210,.5);
-
+  -webkit-box-shadow: 1px 5px 10px rgba(210, 210, 210, .5);
+  box-shadow: 1px 5px 10px rgba(210, 210, 210, .5);
 }
-.watch-style-v1{
+
+.watch-style-v1 {
   background: #cccccc;
 }
-.watch__inner{
+
+.watch__inner {
   padding: 20px;
   border-radius: 20px;
 }
-.watch__inner-style{
+
+.watch__inner-style {
   position: relative;
   overflow: hidden;
-  background: -webkit-gradient(linear,left top, right top,from(rgb(31, 31, 31)), to(rgb(59, 59, 59)));
-  background: -webkit-linear-gradient(left,rgb(31, 31, 31), rgb(59, 59, 59));
-  background: -o-linear-gradient(left,rgb(31, 31, 31), rgb(59, 59, 59));
-  background: linear-gradient(to right,rgb(31, 31, 31), rgb(59, 59, 59));
+  background: -webkit-gradient(linear, left top, right top, from(rgb(31, 31, 31)), to(rgb(59, 59, 59)));
+  background: -webkit-linear-gradient(left, rgb(31, 31, 31), rgb(59, 59, 59));
+  background: -o-linear-gradient(left, rgb(31, 31, 31), rgb(59, 59, 59));
+  background: linear-gradient(to right, rgb(31, 31, 31), rgb(59, 59, 59));
   height: 423px;
 }
+
 // header
-.header{
+.header {
   overflow: hidden;
   padding: 0px 25px;
-  .header__list{
+  .header__list {
     float: left;
     width: 50%;
   }
-  .header__title{
+  .header__title {
     color: orange;
   }
-
-  .header__title-v1{
-    font:{
+  .header__title-v1 {
+    font: {
       size: 1.5rem;
-      weight:bold;
+      weight: bold;
     }
     letter-spacing: -1px;
   }
-  .header__date{
+  .header__date {
     text-align: right;
-    color:#fff;
+    color: #fff;
   }
 }
 
 /* main */
-.changeClose{
-  display: none !important;
 
+.changeClose {
+  display: none !important;
 }
-.changeView{
+
+.changeView {
   display: block !important;
   -webkit-animation: aa 1s forwards;
-          animation: aa 1s forwards;
+  animation: aa 1s forwards;
 }
-@-webkit-keyframes aa{
-  0%{display: block !important;opacity: 0;}
-  100%{opacity : 1}
+
+@-webkit-keyframes aa {
+  0% {
+    display: block !important;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1
+  }
 }
-@keyframes aa{
-  0%{display: block !important;opacity: 0;}
-  100%{opacity : 1}
+
+@keyframes aa {
+  0% {
+    display: block !important;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1
+  }
 }
+
 // time
-.watch__main{
+.watch__main {
   position: absolute;
   top: 0;
   left: 0;
 }
-.watch__main-style-v1{
+
+.watch__main-style-v1 {
   padding: 0px 25px;
-    .time-style{
-      color: #fff;
-      font:{
-        size:4rem;
-      }
-      text-align: center;
-      border-bottom: 1px solid gray;
-      padding: 5px 0;
-      opacity: 0;
-      -webkit-transition: 1s;
-      -o-transition: 1s;
-      transition: 1s;
-      -webkit-animation: mainTime 1s 1s forwards linear;
-              animation: mainTime 1s 1s forwards linear;
+  .time-style {
+    color: #fff;
+    font: {
+      size: 4rem;
     }
-    
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 5px 0;
+    opacity: 0;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    -webkit-animation: mainTime 1s 1s forwards linear;
+    animation: mainTime 1s 1s forwards linear;
+  }
 }
-@-webkit-keyframes mainTime{
-  0%{opacity: 0}
-  100%{opacity: 1}
+
+@-webkit-keyframes mainTime {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
 }
-@keyframes mainTime{
-  0%{opacity: 0}
-  100%{opacity: 1}
+
+@keyframes mainTime {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
 }
- 
 
 // lab
-.lab__main{
+.lab__main {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.watch__main-style-v1{
+.watch__main-style-v1 {
   padding: 0px 25px;
-    .lab-style{
-      span{
-        color: #fff;
-        font-size: 4rem;
-        font-weight: 800;
-      }
+  .lab-style {
+    span {
       color: #fff;
-      font:{
-        size:4rem;
-      }
-      text-align: center;
-      border-bottom: 1px solid gray;
-      padding: 5px 0;
+      font-size: 4rem;
+      font-weight: 800;
     }
+    color: #fff;
+    font: {
+      size: 4rem;
+    }
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 5px 0;
+  }
 }
 
-.stopColor{
+.stopColor {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
   background: red !important;
 }
-.startColor{
+
+.startColor {
   background: rgb(8, 85, 8) !important;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
   transition: .5s;
 }
 
 //footer
-footer{
+footer {
   position: absolute;
   left: 20px;
   bottom: 20px;
   width: 90%;
-
 }
+
 // controler
-.watch__controler-cont{
+.watch__controler-cont {
   display: block;
   overflow: hidden;
   text-align: center;
-  li{
+  li {
     position: relative;
     float: left;
     width: 47%;
@@ -195,64 +240,77 @@ footer{
     -o-transition: .5s;
     transition: .5s;
     cursor: pointer;
-    &:hover button{
+    &:hover button {
       color: #fff;
       -webkit-transition: .5s;
       -o-transition: .5s;
       transition: .5s;
     }
   }
-  .controler__bt-v1{
+  .controler__bt-v1 {
     background: #424040;
   }
-  .controler__bt-v2{
+  .controler__bt-v2 {
     background: rgba(35, 207, 136, 0.502);
   }
-#timeBt button:active{
-  color:rgb(80, 80, 80);
-}
-  .controler__bt{
+  #timeBt button:active {
+    color: rgb(80, 80, 80);
+  }
+  .controler__bt {
     padding: 15px;
     text-align: center;
-    font:{
-      size:1rem;
-      weight:bold;
+    font: {
+      size: 1rem;
+      weight: bold;
     }
   }
-  .button-v1{
+  .button-v1 {
     color: rgba(230, 230, 230, 0.452);
   }
-  .button-v2{
+  .button-v2 {
     color: rgba(255, 255, 255, 0.568);
   }
 }
 
-.luminousMode{
+.luminousMode {
   background: #000;
   -webkit-transition: 1s;
   -o-transition: 1s;
   transition: 1s;
-  
 }
 
-
-.luminousBt{
+.luminousBt {
   background: rgb(58, 248, 10) !important;
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
   -webkit-animation: light 5s infinite linear alternate;
-          animation: light 5s infinite linear alternate;
+  animation: light 5s infinite linear alternate;
 }
-@-webkit-keyframes light{
-  0%{background: rgb(58, 248, 10)}
-  100%{background:  rgb(108, 235, 69);-webkit-box-shadow: 0px 0px 2px greenyellow;box-shadow: 0px 0px 2px greenyellow}
+
+@-webkit-keyframes light {
+  0% {
+    background: rgb(58, 248, 10)
+  }
+  100% {
+    background: rgb(108, 235, 69);
+    -webkit-box-shadow: 0px 0px 2px greenyellow;
+    box-shadow: 0px 0px 2px greenyellow
+  }
 }
-@keyframes light{
-  0%{background: rgb(58, 248, 10)}
-  100%{background:  rgb(108, 235, 69);-webkit-box-shadow: 0px 0px 2px greenyellow;box-shadow: 0px 0px 2px greenyellow}
+
+@keyframes light {
+  0% {
+    background: rgb(58, 248, 10)
+  }
+  100% {
+    background: rgb(108, 235, 69);
+    -webkit-box-shadow: 0px 0px 2px greenyellow;
+    box-shadow: 0px 0px 2px greenyellow
+  }
 }
-.controlder_lumi{
+
+.controlder_lumi {
   display: inline-block;
   position: absolute;
   right: 10px;
@@ -265,14 +323,15 @@ footer{
   -webkit-transition: .4s;
   -o-transition: .4s;
   transition: .4s;
-  &:hover{
+  &:hover {
     background: rgb(58, 248, 10);
     -webkit-transition: .4s;
     -o-transition: .4s;
     transition: .4s;
   }
 }
-.lightBet{
+
+.lightBet {
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -283,27 +342,37 @@ footer{
   opacity: 1;
   border-radius: 100%;
   -webkit-animation: lightRed 2s infinite alternate;
-          animation: lightRed 2s infinite alternate;
+  animation: lightRed 2s infinite alternate;
   -webkit-animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
-          animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  animation-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035);
 }
-@-webkit-keyframes lightRed{
-  0%{opacity: 1;}
-  100%{opacity: 0;}
+
+@-webkit-keyframes lightRed {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-@keyframes lightRed{
-  0%{opacity: 1;}
-  100%{opacity: 0;}
+
+@keyframes lightRed {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-.ft-Wt{
+
+.ft-Wt {
   color: #fff !important;
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s;
 }
 
-
-.resetCont{
+.resetCont {
   display: inline-block;
   position: absolute;
   right: 50px;
@@ -317,176 +386,448 @@ footer{
   text-align: center;
   color: rgba(255, 255, 255, 0.678);
   font-weight: bold;
-  &:hover{
-    color:#fff;
+  &:hover {
+    color: #fff;
   }
 }
 
 // show box
-.showBox{
+.showBox {
   padding-top: 85px;
 }
-.labBox{
+
+.labBox {
   display: none;
-  margin-top: 10px;
-  // border: 1px solid blue;
-  ul{
+  margin-top: 10px; // border: 1px solid blue;
+  ul {
     overflow: hidden;
   }
-  li{
+  li {
     width: 50%;
     float: left;
     text-align: center;
-    p{
-      
+    p {
       font-size: 1rem;
       color: #fff;
-      span{
+      span {
         color: rgba(187, 187, 187, 0.747);
         font-weight: bold;
       }
     }
-    &:first-child{
+    &:first-child {
       padding-left: 25px;
     }
-    &:last-child{
+    &:last-child {
       padding-right: 40px;
     }
   }
 }
-.labBoxSendCont{
+
+.labBoxSendCont {
   height: 190px;
   overflow: hidden;
-
 }
 
-
 // main analog
-.aniChangeAanl{
+.aniChangeAanl {
   position: absolute;
   left: 20px;
   top: 50;
   opacity: 1;
   -webkit-animation: chageMainDigi 1s forwards;
-          animation: chageMainDigi 1s forwards;
+  animation: chageMainDigi 1s forwards;
 }
-@-webkit-keyframes chageMainDigi{
-  0%{opacity: 1;left: 0;}
-  100%{opacity: 0;left: -400px;}
+
+@-webkit-keyframes chageMainDigi {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    opacity: 0;
+    left: -400px;
+  }
 }
-@keyframes chageMainDigi{
-  0%{opacity: 1;left: 0;}
-  100%{opacity: 0;left: -400px;}
+
+@keyframes chageMainDigi {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    opacity: 0;
+    left: -400px;
+  }
 }
-.aniChangeDigi{
+
+.aniChangeDigi {
   position: absolute;
   left: 20px;
   top: 50;
   opacity: 0;
-  -webkit-animation: chageMainAnal 1s forwards;
-          animation: chageMainAnal 1s forwards;
-}
-@-webkit-keyframes chageMainAnal{
-  0%{opacity: 0;left: -400px;}
-  100%{opacity: 1;left: -0;}
-  
-}
-@keyframes chageMainAnal{
-  0%{opacity: 0;left: -400px;}
-  100%{opacity: 1;left: -0;}
-  
+  -webkit-animation: chageMainAnal 1s 1s forwards;
+  animation: chageMainAnal 1s 1s forwards;
 }
 
-.analog_Show{
+@-webkit-keyframes chageMainAnal {
+  0% {
+    opacity: 0;
+    left: -400px;
+  }
+  100% {
+    opacity: 1;
+    left: -0;
+  }
+}
+
+@keyframes chageMainAnal {
+  0% {
+    opacity: 0;
+    left: -400px;
+  }
+  100% {
+    opacity: 1;
+    left: -0;
+  }
+}
+
+.analog_Show {
   display: block;
   opacity: 0;
   -webkit-animation: showAlog 1s 1s forwards;
-          animation: showAlog 1s 1s forwards;
-}
-@-webkit-keyframes showAlog{
-  0%{opacity: 0;}
-  100%{opacity: 1;}
-}
-@keyframes showAlog{
-  0%{opacity: 0;}
-  100%{opacity: 1;}
+  animation: showAlog 1s 1s forwards;
 }
 
+@-webkit-keyframes showAlog {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showAlog {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 // server
-#server{
-  p,span{
-    font-size: 2rem;
+#server {
+  p,
+  span {
     font-weight: bold;
-    color: blue;
-    
   }
   border: 1px solid red;
 }
 
-#bbb{
-position: relative;
-width: 200px;
-height: 200px;
-border-radius: 50%;
-background: black;
-  #analogSec{
+#analogWatch {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  // background:url(http://www.clker.com/cliparts/s/h/B/C/3/j/clock-with-minute-ticks-no-hands-hi.png);
+  // background: url(https://www.time4diamonds.com/media/catalog/product/cache/1/thumbnail/300x/17f82f742ffe127f42dca9de82fb58b1/1/_/1_2_49.png);
+  // background: url(http://www.kalondawatch.com/wp-content/uploads/2016/02/Royal-Black-watch-Women-DIAL.png);
+  background: url(../src/watchMainBack.png), url(../src/watchSubBack_v1.png);
+  background-size: cover;
+  border:1px solid green;
+  #analogSec {
     position: absolute;
     top: 50%;
     left: 0%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 100%;
     height: 2px;
-    background: orange;
-    transform: rotate(0);
-    &:after{
+    background:-webkit-gradient(linear,right top, left top,color-stop(45%, transparent),color-stop(55%, orange));
+    background:-webkit-linear-gradient(right,transparent 45%,orange 55%);
+    background:-o-linear-gradient(right,transparent 45%,orange 55%);
+    background:linear-gradient(to left,transparent 45%,orange 55%);
+    -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+            transform: rotate(0);
+    z-index: 50;
+    &:after {
       position: absolute;
-      // right: 0;
+      top: 50%;
+      left: -10px;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
       display: block;
       content: '';
-      width: 10px;
-      height: 10px;
+      width: 0px;
+      height: 0px;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 10px solid orange;
+      border-left: 3px solid transparent;
+    }
+    &:before{
+      position: absolute;
+      top: -50%;
+      right: 50%;
+      -webkit-transform: translateY(-50%,-50%);
+          -ms-transform: translateY(-50%,-50%);
+              transform: translateY(-50%,-50%);
+      display: block;
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
       background: orange;
     }
+  }
+  #analogMin {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    height: 4px;
+    background: -webkit-gradient(linear,right top, left top,color-stop(50%, transparent),color-stop(50%, rgb(189, 189, 189)));
+    background: -webkit-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
+    background: -o-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
+    background: linear-gradient(to left,transparent 50%,rgb(189, 189, 189) 50%);
+    -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+            transform: rotate(0);
+            z-index: 45;
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      display: block;
+      content: '';
+      width: 0px;
+      height: 0px;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 10px solid white;
+      border-left: 3px solid transparent;
+    }
+  }
+  #analohHours {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    width: 100%;
+    height: 4px;
+    background: -webkit-gradient(linear,right top, left top,color-stop(50%, transparent),color-stop(50%, rgb(189, 189, 189)));
+    background: -webkit-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
+    background: -o-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
+    background: linear-gradient(to left,transparent 50%,rgb(189, 189, 189) 50%);
+    -webkit-transform: rotate(0);
+        -ms-transform: rotate(0);
+            transform: rotate(0);
+            z-index: 40;
+    &:after { 
+      position: absolute; 
+      top: 50%;
+      left: -10px;
+      -webkit-transform: translate(-50%,-50%);
+          -ms-transform: translate(-50%,-50%);
+              transform: translate(-50%,-50%);
+      display: block;
+      content: '';
+      width: 0px;
+      height: 0px;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      border-right: 10px solid orange;
+      border-left: 3px solid transparent;
+    }
+  }
 
-  }
-  #analogMin{
+
+  // subdial v1 v2 v3
+  .subdial{
     position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 5px;
-    border: 1px solid white;
-    transform: rotate(0);
-    &:after{
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    border-radius: 100%;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            text-align: center;
+            
+            img{
+              margin-top: 5px;
+              width: 85%;
+              border-radius: 100%;
+            }
+  }
+  box-shadow: 2px 5px 5px white;
+  .subdial__v1{
+    // border: 1px solid red;
+    left: 30%;
+    top: 55%;
+    background: url(../src/subdial_v4.png),black;
+    background-size: cover;
+  }
+  .subdial__v2{
+    position: relative;
+    // border: 1px solid blue;
+    left: 70%;
+    top: 55%;
+    cursor: pointer;
+    background: url(../src/subdial_v7.png),black;
+    background-size: cover;
+    &:after,&:before{
       position: absolute;
-      // right: 0;
-      display: block;
+      width: 52px;
+      height: 52px;
+      transition: 1s;
+      left: 2px;
+      top: 2px;
       content: '';
-      width: 10px;
-      height: 10px;
-      background: blue;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: rgb(255, 174, 0);
+      border-bottom-color: rgb(255, 208, 0);
+      animation: subdialBd 2s .5s linear forwards;
     }
   }
-  #analohHours{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    height: 5px;
-    border: 1px solid blue;
-    transform: rotate(0);
-    &:after{
-      position: absolute;
-      // right: 0;
-      display: block;
-      content: '';
-      width: 10px;
-      height: 10px;
-      background: white;
-    }
+  .subdial__v3{
+    // border: 1px solid orange;
+    left: 50%;
+    bottom: 10%;
+    background: url(../src/subdial_v3.png),black;
+    background-size: cover;
   }
-  
+
 }
+@keyframes subdialBd {
+        0%{transform: rotate(0deg) scale(.1)}
+        50%{transform: rotate(45deg) scale(1.2)}
+        75%{transform: rotate(180deg) scale(.9)}
+        100%{transform: rotate(360deg) scale(1)}
+}
+
+
+
+.subRightChimMin{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transition: 1s;
+  opacity: 0;
+  transform-origin: top center;
+  animation: showSubChim 4s 2s forwards linear;
+  animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@keyframes showSubChim{
+  0%{opacity: 0; transform: rotate(0deg);background: red;}
+  25%{opacity: 1; transform: rotate(0deg);background: red;}
+  50%{opacity: 1; transform: rotate(360deg);background: red;}
+  75%{opacity: 1; transform: rotate(720deg);background: red;}
+  100%{opacity: 1; transform: rotate(195deg);background:linear-gradient(to right,red 50%,transparent 50%);}
+}
+// analog Title
+.analogTitle_title {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); 
+  overflow: hidden;
+  width: 80px;
+  height: 30px;
+  background: black;
+  text-align: center;
+  border-radius: 5px;
+  ul {
+    position: absolute;
+    width: 100%;
+    top: -6px;
+    left: 0;
+    li {
+      height: 30px;
+      color: #fff;
+      margin: 6px 0;
+      padding-top: 5px;
+      font-weight: bold;
+      font-size: .7rem;
+      P{
+        font-size: 5px;
+        transform: scale(.8);
+        color: #bebebe;
+      }
+    }
+            animation: alogDate 20s 1s infinite;
+            animation-timing-function: cubic-bezier(0.77, 0, 0, 1);
+  }
+}
+
+@-webkit-keyframes alogDate {
+  0% {
+    top: -6px;
+  }
+  25% {
+    top: -42px;
+  }
+  50% {
+    top: -78px;
+  }
+  75% {
+    top: -114px;
+  }
+  100% {
+    top: -150px;
+  }
+}
+
+@keyframes alogDate {
+  0% {
+    top: -6px;
+  }
+  25% {
+    top: -42px;
+  }
+  50% {
+    top: -78px;
+  }
+  75% {
+    top: -114px;
+  }
+  100% {
+    top: -150px;
+  }
+}
+
+
+//  Analog daty
+.analogDay_day{
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  top: 39%;
+  left: 69%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 5px;
+  background: black;
+}
+
