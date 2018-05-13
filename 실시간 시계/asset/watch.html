@@ -54,8 +54,47 @@
 
 
         </section>
-        <section id="main__analog" class="analog_main">
-          ssss
+        <section id="main__analog" class="analog_main changeClose">
+            <div id="analogWatch">
+                <div id="analogSec"></div>
+                <div id="analogMin"></div>
+                <div id="analohHours"></div>
+          
+                <div id="analogTitle" class="analogTitle_title">
+                  <ul>
+                    <li>Wtimer1
+                      <p>WATCHFACECO</p>
+                    </li>
+                    <li>Wtimer2
+                      <p>WATCHFACECO</p>
+                    </li>
+                    <li>Wtimer3
+                      <p>WATCHFACECO</p>
+                    </li>
+                  </ul>
+                </div>  
+                <div id="analogDay" class="analogDay_day"></div>
+          
+                <!-- left -->
+                <div id="subdial_v1" class="subdial subdial__v1">
+                    <img src="https://s-media-cache-ak0.pinimg.com/originals/d8/25/5f/d8255f11a5e0f457697982f5943b1b77.gif" alt="">
+                </div>
+                  <!-- right -->
+                <div id="subdial_v2" class="subdial subdial__v2">
+                    <div id="subChip1" class="subRightChimMin">
+                     
+                      </div>
+                      <div id="subChip2">
+                        
+                        </div>
+                    </div>
+                
+                <!-- middle -->
+                <div id="subdial_v3" class="subdial subdial__v3">
+          
+                </div>
+                
+              </div>
         </section>
         <footer>
           <div class="watch__controler">
@@ -84,52 +123,7 @@
 
   <div id="server">
     <p>나 서버</p>
-    <div id="analogWatch">
-      <div id="analogSec"></div>
-      <div id="analogMin"></div>
-      <div id="analohHours"></div>
-
-      <div id="analogTitle" class="analogTitle_title">
-        <ul>
-          <li>Wtimer1
-            <p>WATCHFACECO</p>
-          </li>
-          <li>Wtimer2
-            <p>WATCHFACECO</p>
-          </li>
-          <li>Wtimer3
-            <p>WATCHFACECO</p>
-          </li>
-          <li>Wtimer4
-            <p>WATCHFACECO</p>
-          </li>
-          <li>Wtimer5
-            <p>WATCHFACECO</p>
-          </li>
-        </ul>
-      </div>  
-      <div id="analogDay" class="analogDay_day"></div>
-
-      <!-- left -->
-      <div id="subdial_v1" class="subdial subdial__v1">
-          <img src="https://media.giphy.com/media/yu0y4aQtXSdyM/giphy.gif" alt="">
-      </div>
-        <!-- right -->
-      <div id="subdial_v2" class="subdial subdial__v2">
-          <div id="subChip1" class="subRightChimMin">
-           
-            </div>
-            <div id="subChip2">
-              
-              </div>
-          </div>
-      
-      <!-- middle -->
-      <div id="subdial_v3" class="subdial subdial__v3">
-
-      </div>
-      
-    </div>
+    
     
   </div>
 
@@ -205,6 +199,7 @@
           timeBt.setAttribute('data-name','actLabFun'); // labBt act
           labBoxId.classList.add('changeView');
           titleFont.textContent="디지털";
+          main__analog.classList.remove('analog_Show');
 
           if(timeView.classList.contains('aniChangeAanl')){
             timeView.classList.remove('aniChangeAanl');
@@ -351,6 +346,8 @@
           timeView.classList.remove('aniChangeDigi');
           main__analog.classList.add('analog_Show');
           titleFont.textContent ='아날로그';
+          main__analog.classList.remove('analog_Close');
+         
           
 
 
@@ -361,6 +358,11 @@
           timeView.classList.add('aniChangeDigi');
           main__analog.classList.remove('analog_Show');
           titleFont.textContent ='디지털';
+          main__analog.classList.add('analog_Close');
+          main__analog.classList.remove('changeClose');
+         
+
+  
         };
 
         // lab active

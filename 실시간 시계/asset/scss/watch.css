@@ -13,10 +13,11 @@ body {
   -o-transition: 1s;
   transition: 1s; }
 
-#main__analog {
-  display: none; }
-
 .analog_main {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 47%;
   color: red;
   -webkit-animation: analogNone 1s forwards;
   animation: analogNone 1s forwards; }
@@ -235,6 +236,7 @@ footer {
   border-radius: 100%;
   width: 30px;
   height: 30px;
+  z-index: 50;
   background: rgba(35, 207, 136, 0.502);
   -webkit-transition: .4s;
   -o-transition: .4s;
@@ -365,10 +367,10 @@ footer {
     opacity: 1;
     left: -0; } }
 .analog_Show {
-  display: block;
+  display: block !important;
   opacity: 0;
-  -webkit-animation: showAlog 1s 1s forwards;
-  animation: showAlog 1s 1s forwards; }
+  -webkit-animation: showAlog 2s 1s forwards;
+  animation: showAlog 2s 1s forwards; }
 
 @-webkit-keyframes showAlog {
   0% {
@@ -380,6 +382,20 @@ footer {
     opacity: 0; }
   100% {
     opacity: 1; } }
+.analog_Close {
+  opacity: 1;
+  animation: closeAnalog 2s .2s forwards; }
+
+@keyframes closeAnalog {
+  0% {
+    opacity: 1; }
+  25% {
+    opacity: 0; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 0;
+    display: none; } }
 #server {
   border: 1px solid red; }
   #server p,
@@ -392,9 +408,45 @@ footer {
   height: 300px;
   border-radius: 50%;
   background: url(../src/watchMainBack.png), url(../src/watchSubBack_v1.png);
-  background-size: cover;
-  border: 1px solid green;
-  box-shadow: 2px 5px 5px white; }
+  background-size: cover; }
+  #analogWatch:after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background: #050505; }
+  #analogWatch:before {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-right-color: #6e6e02;
+    border-left-color: #6e6e02;
+    border-radius: 50%;
+    animation: analogLoadEffect 2s 2s linear forwards, closeLoade 1s 5s linear forwards; }
+@keyframes analogLoadEffect {
+  0% {
+    transform: rotate(180deg); }
+  25% {
+    transform: rotate(180deg); }
+  50% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(480deg); } }
+@keyframes closeLoade {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
   #analogWatch #analogSec {
     position: absolute;
     top: 50%;
@@ -404,14 +456,14 @@ footer {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 2px;
-    background: -webkit-gradient(linear, right top, left top, color-stop(45%, transparent), color-stop(55%, orange));
-    background: -webkit-linear-gradient(right, transparent 45%, orange 55%);
-    background: -o-linear-gradient(right, transparent 45%, orange 55%);
-    background: linear-gradient(to left, transparent 45%, orange 55%);
+    background: -webkit-gradient(linear, right top, left top, color-stop(45%, transparent), color-stop(30%, orange));
+    background: -webkit-linear-gradient(right, transparent 45%, orange 30%);
+    background: -o-linear-gradient(right, transparent 45%, orange 30%);
+    background: linear-gradient(to left, transparent 45%, orange 30%);
     -webkit-transform: rotate(0);
     -ms-transform: rotate(0);
     transform: rotate(0);
-    z-index: 50; }
+    z-index: 100; }
     #analogWatch #analogSec:after {
       position: absolute;
       top: 50%;
@@ -430,7 +482,7 @@ footer {
     #analogWatch #analogSec:before {
       position: absolute;
       top: -50%;
-      right: 50%;
+      right: 49%;
       -webkit-transform: translateY(-50%, -50%);
       -ms-transform: translateY(-50%, -50%);
       transform: translateY(-50%, -50%);
@@ -609,7 +661,7 @@ footer {
     width: 100%;
     top: -6px;
     left: 0;
-    animation: alogDate 20s 1s infinite;
+    animation: alogDate 20s 5s infinite;
     animation-timing-function: cubic-bezier(0.77, 0, 0, 1); }
     .analogTitle_title ul li {
       height: 30px;
@@ -626,25 +678,17 @@ footer {
 @-webkit-keyframes alogDate {
   0% {
     top: -6px; }
-  25% {
-    top: -42px; }
   50% {
-    top: -78px; }
-  75% {
-    top: -114px; }
+    top: -42px; }
   100% {
-    top: -150px; } }
+    top: -78px; } }
 @keyframes alogDate {
   0% {
     top: -6px; }
-  25% {
-    top: -42px; }
   50% {
-    top: -78px; }
-  75% {
-    top: -114px; }
+    top: -42px; }
   100% {
-    top: -150px; } }
+    top: -78px; } }
 .analogDay_day {
   position: absolute;
   width: 25px;
