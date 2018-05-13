@@ -50,6 +50,7 @@ header {
 }
 
 .watch__container {
+  position: relative;
   width: 400px;
   padding: 20px;
   border-radius: 20px;
@@ -1073,3 +1074,57 @@ footer {
   background: black;
 }
 
+
+// alarm
+.alarm{
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top: 70px;
+  width: 10px;
+  height: 50px;
+  background: gray;
+  border-radius: 15px;
+  cursor: pointer;
+  z-index: 200;
+}
+.alarmClose{
+  display: none !important;
+}
+.alarm__cont{
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-10%,-10%);
+  opacity: 0;
+  z-index: 500;
+  animation: alarmCont 2s 1s forwards;
+}
+@keyframes alarmCont{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.alarm__box{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: 60%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 80px;
+  font-weight: bold;
+}
+.alarmBx_v1{
+  left: 20%;
+  background: orange;
+  color: #333;
+}
+.alarmBx_v2{
+  left: 60%;
+  background: darkgray;
+  color: #fff;
+}

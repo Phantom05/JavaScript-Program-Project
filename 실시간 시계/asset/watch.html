@@ -17,7 +17,19 @@
 <body>
   <div class="wrap">
     <div class="watch watch__container watch-style-v1">
+        <div id="alarmBt" class="alarm" data-name="close"></div>
+
+
       <div class="watch__inner watch__inner-style">
+          <div id="alarm__container" class="alarm__cont alarmClose">
+              <div id="snoozeBt" class="alarm__box alarmBx_v1">
+                Snooze
+              </div>
+              <div id="dismissBt" class="alarm__box alarmBx_v2">
+                Disimiss
+              </div>
+            </div>
+            
         <header>
           <span id="rec"></span>
           <ul class="header">
@@ -127,7 +139,7 @@
                 
               </div>
         </section>
-        <footer>
+        <footer id="watch__footer">
           <div class="watch__controler">
             <div class="resetCont changeClose" id="resetBt">
               리셋
@@ -570,6 +582,37 @@ let alamA =document.getElementById('alamA');
 let alam = document.getElementById('alam');
 alam.addEventListener('click',function(){
   alamA.play();
+})
+
+
+let alarmBt = document.getElementById('alarmBt');
+let watch__footer=document.getElementById('watch__footer');
+let alarm__container =document.getElementById('alarm__container');
+
+let snoozeBt  = document.getElementById('snoozeBt');
+let dismissBt =document.getElementById('dismissBt');
+
+alarmBt.addEventListener('click',function(){
+  // if(alarmBt.getAttribute('data-name')=='close'){
+  //   main__digital.classList.add('alarmClose');
+  //   main__analog.classList.add('alarmClose');
+  //   watch__footer.classList.add('alarmClose');
+  //   alarmBt.setAttribute('data-name','open');
+
+  // }else{
+  //   main__digital.classList.remove('alarmClose');
+  //   main__analog.classList.remove('alarmClose');
+  //   watch__footer.classList.remove('alarmClose');
+  //   alarmBt.setAttribute('data-name','close');
+  // }
+  main__digital.classList.toggle('alarmClose');
+  main__analog.classList.toggle('alarmClose');
+  watch__footer.classList.toggle('alarmClose');
+  alarm__container.classList.toggle('alarmClose');
+  snoozeBt.addEventListener('click',function(){
+    alamA.pause();
+  })
+
 })
   </script>
 
