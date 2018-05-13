@@ -719,7 +719,7 @@ footer {
       border: 2px solid transparent;
       border-top-color: rgba(255, 174, 0, 0.5);
       border-bottom-color: rgba(255, 208, 0, 0.5);
-      animation: subdialBd 2s 1.2s linear forwards; }
+      animation: subdialBd 2.5s 1.5s linear forwards; }
   #analogWatch .subdial__v3 {
     left: 50%;
     bottom: 10%;
@@ -730,11 +730,11 @@ footer {
   0% {
     transform: rotate(0deg) scale(0.1); }
   50% {
-    transform: rotate(45deg) scale(1.2); }
+    transform: rotate(-45deg) scale(1.2); }
   75% {
-    transform: rotate(180deg) scale(0.9); }
+    transform: rotate(-180deg) scale(0.9); }
   100% {
-    transform: rotate(360deg) scale(1); } }
+    transform: rotate(-360deg) scale(1); } }
 .subRightChimMin {
   position: absolute;
   top: 50%;
@@ -915,5 +915,74 @@ footer {
   left: 60%;
   background: darkgray;
   color: #fff; }
+
+.setTiem {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-20%, -50%); }
+
+#setTimeHour {
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 80px;
+  padding: 5px;
+  background: black;
+  color: #fff; }
+  #setTimeHour option {
+    display: inline-block;
+    width: 50px;
+    padding: 5px; }
+
+/*
+circle button
+*/
+.clickButton {
+  display: inline-block;
+  position: relative;
+  border-radius: 15px;
+  background: #ececec;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+
+.clickButton_size_s {
+  width: 70px;
+  height: 30px; }
+
+.clickButton__circle {
+  display: inline-block;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 40px;
+  border: 1px solid #ececec;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+
+.circle_themes_simple {
+  background: white; }
+
+.circle_size_s {
+  width: 30px;
+  height: 30px; }
+
+.activeButton {
+  top: 0;
+  right: 0;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+
+.activeStyle {
+  background: #4ae270;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
 
 /*# sourceMappingURL=watch.css.map */

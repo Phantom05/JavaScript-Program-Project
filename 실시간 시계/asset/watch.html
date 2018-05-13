@@ -22,6 +22,28 @@
 
       <div class="watch__inner watch__inner-style">
           <div id="alarm__container" class="alarm__cont alarmClose">
+            <div class="setTiem">
+
+              <select name="" id="setTimeHour">
+                <option value="">00</option>
+                <option value="">01</option>
+                <option value="">02</option>
+                <option value="">03</option>
+                <option value="">04</option>
+              </select>:
+
+              <select name="" id="">
+                <option value="">00</option>
+                <option value="">01</option>
+                <option value="">02</option>
+                <option value="">03</option>
+                <option value="">04</option>
+              </select>
+
+              <div id="clickButton" class="clickButton clickButton_size_s">
+                  <span id="circleButton" class="clickButton__circle circle_size_s circle_themes_simple"></span>
+                </div>
+            </div>
               <div id="snoozeBt" class="alarm__box alarmBx_v1">
                 Snooze
               </div>
@@ -103,10 +125,10 @@
           
                 <div id="analogTitle" class="analogTitle_title">
                   <ul>
-                    <li>Wtimer1
+                    <li>Wtimer2
                       <p>WATCHFACECO</p>
                     </li>
-                    <li>Wtimer2
+                    <li>Setting2
                       <p>WATCHFACECO</p>
                     </li>
                     <li>Wtimer3
@@ -486,7 +508,66 @@
       analogDay.textContent=timeGetDay;
         })
 
-    })
+let alamA =document.getElementById('alamA');
+let alam = document.getElementById('alam');
+alam.addEventListener('click',function(){
+  alamA.play();
+})
+
+
+let alarmBt = document.getElementById('alarmBt');
+let watch__footer=document.getElementById('watch__footer');
+let alarm__container =document.getElementById('alarm__container');
+
+let snoozeBt  = document.getElementById('snoozeBt');
+let dismissBt =document.getElementById('dismissBt');
+
+alarmBt.addEventListener('click',function(){
+  // if(alarmBt.getAttribute('data-name')=='close'){
+  //   main__digital.classList.add('alarmClose');
+  //   main__analog.classList.add('alarmClose');
+  //   watch__footer.classList.add('alarmClose');
+  //   alarmBt.setAttribute('data-name','open');
+
+  // }else{
+  //   main__digital.classList.remove('alarmClose');
+  //   main__analog.classList.remove('alarmClose');
+  //   watch__footer.classList.remove('alarmClose');
+  //   alarmBt.setAttribute('data-name','close');
+  // }
+  main__digital.classList.toggle('alarmClose');
+  main__analog.classList.toggle('alarmClose');
+  watch__footer.classList.toggle('alarmClose');
+  alarm__container.classList.toggle('alarmClose');
+  snoozeBt.addEventListener('click',function(){
+    alamA.pause();
+  })
+
+})
+
+
+/*button*/
+let clickButton = document.getElementById("clickButton");
+let body = document.getElementsByTagName("body")[0];
+let wifiIcon = document.getElementById("wifi-icon");
+let wifiLabel = document.getElementById("wifiLabel");
+
+  clickButton.addEventListener("click", function(e) {
+    if (e.target.id == "circleButton") {
+      circleButton.classList.toggle("activeButton");
+      clickButton.classList.toggle("activeStyle");
+
+      /**/
+      body.classList.toggle("changeBody");
+      wifiIcon.classList.toggle("activeWifi");
+      wifiLabel.classList.toggle("changeLabel");
+    }
+  });
+
+
+
+
+    }); // domcontent
 
 
 
@@ -576,44 +657,16 @@ var chart = AmCharts.makeChart( "chartdiv", {
   "export": {
     "enabled": true
   }
+
+
+
+
+
+  
 } );
 
-let alamA =document.getElementById('alamA');
-let alam = document.getElementById('alam');
-alam.addEventListener('click',function(){
-  alamA.play();
-})
 
 
-let alarmBt = document.getElementById('alarmBt');
-let watch__footer=document.getElementById('watch__footer');
-let alarm__container =document.getElementById('alarm__container');
-
-let snoozeBt  = document.getElementById('snoozeBt');
-let dismissBt =document.getElementById('dismissBt');
-
-alarmBt.addEventListener('click',function(){
-  // if(alarmBt.getAttribute('data-name')=='close'){
-  //   main__digital.classList.add('alarmClose');
-  //   main__analog.classList.add('alarmClose');
-  //   watch__footer.classList.add('alarmClose');
-  //   alarmBt.setAttribute('data-name','open');
-
-  // }else{
-  //   main__digital.classList.remove('alarmClose');
-  //   main__analog.classList.remove('alarmClose');
-  //   watch__footer.classList.remove('alarmClose');
-  //   alarmBt.setAttribute('data-name','close');
-  // }
-  main__digital.classList.toggle('alarmClose');
-  main__analog.classList.toggle('alarmClose');
-  watch__footer.classList.toggle('alarmClose');
-  alarm__container.classList.toggle('alarmClose');
-  snoozeBt.addEventListener('click',function(){
-    alamA.pause();
-  })
-
-})
   </script>
 
 </body>
