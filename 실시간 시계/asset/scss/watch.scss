@@ -55,8 +55,8 @@ header {
   width: 400px;
   padding: 20px;
   border-radius: 20px;
-  -webkit-box-shadow: 1px 5px 10px rgba(210, 210, 210, .5);
-  box-shadow: 1px 5px 10px rgba(210, 210, 210, .5);
+  -webkit-box-shadow: 1px 5px 10px rgba(0, 0, 0, .5);
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, .5);
 }
 
 .watch-style-v1 {
@@ -72,9 +72,9 @@ header {
   position: relative;
   overflow: hidden;
   background: -webkit-gradient(linear, left top, right top, from(rgb(31, 31, 31)), to(rgb(59, 59, 59)));
-  background: -webkit-linear-gradient(left, rgb(31, 31, 31), rgb(59, 59, 59));
-  background: -o-linear-gradient(left, rgb(31, 31, 31), rgb(59, 59, 59));
-  background: linear-gradient(to right, rgb(31, 31, 31), rgb(59, 59, 59));
+  background: -webkit-linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
+  background: -o-linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
+  background: linear-gradient(left, rgb(31, 31, 31), rgb(37, 37, 37));
   height: 423px;
 }
 
@@ -546,17 +546,19 @@ footer {
   // background: url(http://www.kalondawatch.com/wp-content/uploads/2016/02/Royal-Black-watch-Women-DIAL.png);
   background: url(../src/watchMainBack.png), url(../src/watchSubBack_v1.png);
   background-size: cover;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.5);
   &:after{
     display: block;
     position: absolute;
     content: '';
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     left: 50%;
     top: 50%;
     transform:translate(-50%,-50%);
     border-radius: 100%;
-    background: rgb(5, 5, 5);
+    background: rgb(43, 43, 43);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.308);
   }
   &:before{
     display: block;
@@ -595,47 +597,49 @@ footer {
   #analogSec {
     position: absolute;
     top: 50%;
-    left: 0%;
+    left: 10%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 100%;
+    transform-origin: right;
+    width: 40%;
     height: 2px;
-    background:-webkit-gradient(linear,right top, left top,color-stop(45%, transparent),color-stop(30%, orange));
-    background:-webkit-linear-gradient(right,transparent 45%,orange 30%);
-    background:-o-linear-gradient(right,transparent 45%,orange 30%);
-    background:linear-gradient(to left,transparent 45%,orange 30%);
+    // background:-webkit-gradient(linear,right top, left top,color-stop(45%, transparent),color-stop(30%, orange));
+    // background:-webkit-linear-gradient(right,transparent 45%,orange 30%);
+    // background:-o-linear-gradient(right,transparent 45%,orange 30%);
+    // background:linear-gradient(to left,transparent 45%,orange 30%);
+    background: orange;
     -webkit-transform: rotate(0);
         -ms-transform: rotate(0);
             transform: rotate(0);
     z-index: 100;
-    &:after {
-      position: absolute;
-      top: 50%;
-      left: -10px;
-      -webkit-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-              transform: translateY(-50%);
-      display: block;
-      content: '';
-      width: 0px;
-      height: 0px;
-      border-top: 3px solid transparent;
-      border-bottom: 3px solid transparent;
-      border-right: 10px solid orange;
-      border-left: 3px solid transparent;
-    }
+    // &:after {//arrow
+    //   position: absolute;
+    //   top: 50%;
+    //   left: -10px;
+    //   -webkit-transform: translateY(-50%);
+    //       -ms-transform: translateY(-50%);
+    //           transform: translateY(-50%);
+    //   display: block;
+    //   content: '';
+    //   width: 0px;
+    //   height: 0px;
+    //   border-top: 3px solid transparent;
+    //   border-bottom: 3px solid transparent;
+    //   border-right: 10px solid orange;
+    //   border-left: 3px solid transparent;
+    // }
     &:before{
       position: absolute;
-      top: -50%;
-      right: 49%;
+      top: -101%;
+      right: -3%;
       -webkit-transform: translateY(-50%,-50%);
           -ms-transform: translateY(-50%,-50%);
               transform: translateY(-50%,-50%);
       display: block;
       content: '';
-      width: 5px;
-      height: 5px;
+      width: 7px;
+      height: 7px;
       border-radius: 100%;
       background: orange;
     }
@@ -643,16 +647,15 @@ footer {
   #analogMin {
     position: absolute;
     top: 50%;
-    left: 0%;
+    left: 13%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 100%;
+    transform-origin: right;
+    width: 37%;
     height: 4px;
-    background: -webkit-gradient(linear,right top, left top,color-stop(50%, transparent),color-stop(50%, rgb(189, 189, 189)));
-    background: -webkit-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
-    background: -o-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
-    background: linear-gradient(to left,transparent 50%,rgb(189, 189, 189) 50%);
+    background: linear-gradient(to left,
+            rgb(73, 73, 73) 20%, rgb(175, 175, 175) 15%, rgb(175, 175, 175) 50%,rgb(175, 175, 175) 50%);
     -webkit-transform: rotate(0);
         -ms-transform: rotate(0);
             transform: rotate(0);
@@ -677,16 +680,16 @@ footer {
   #analohHours {
     position: absolute;
     top: 50%;
-    left: 0%;
+    left: 25%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    width: 100%;
+            transform-origin: right;
+    width: 25%;
     height: 4px;
-    background: -webkit-gradient(linear,right top, left top,color-stop(50%, transparent),color-stop(50%, rgb(189, 189, 189)));
-    background: -webkit-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
-    background: -o-linear-gradient(right,transparent 50%,rgb(189, 189, 189) 50%);
-    background: linear-gradient(to left,transparent 50%,rgb(189, 189, 189) 50%);
+    background: linear-gradient(to left,
+            rgb(73, 73, 73) 20%, rgb(175, 175, 175) 15%, rgb(175, 175, 175) 50%,rgb(175, 175, 175) 50%);
+
     -webkit-transform: rotate(0);
         -ms-transform: rotate(0);
             transform: rotate(0);
@@ -694,7 +697,7 @@ footer {
     &:after { 
       position: absolute; 
       top: 50%;
-      left: -10px;
+      left: -5px;
       -webkit-transform: translate(-50%,-50%);
           -ms-transform: translate(-50%,-50%);
               transform: translate(-50%,-50%);
@@ -713,8 +716,8 @@ footer {
   // subdial v1 v2 v3
   .subdial{
     position: absolute;
-    width: 62px;
-    height: 62px;
+    width: 64px;
+    height: 64px;
     line-height: 62px;
     border-radius: 100%;
     -webkit-transform: translate(-50%,-50%);
@@ -732,8 +735,9 @@ footer {
     // border: 1px solid red;
     left: 30%;
     top: 55%;
-    background: url(../src/subdial_v4.png),black;
+    background: url(http://lh4.ggpht.com/Nz1yDFSoM4hE3a1ST8xDXqP5xoD0UcxIck_7O2CY0E0xnUrEOAlUjhnh2VbS_kUrTgkz=h900),black;
     background-size: cover;
+
   }
   .subdial__v2{
     position: relative;
@@ -745,16 +749,16 @@ footer {
     background-size: cover;
     &:after,&:before{
       position: absolute;
-      width: 52px;
-      height: 52px;
+      width: 58px;
+      height: 58px;
       transition: 1s;
       left: 2px;
-      top: 2px;
+      top: 1px;
       content: '';
       border-radius: 50%;
       border: 2px solid transparent;
-      border-top-color: rgb(255, 174, 0);
-      border-bottom-color: rgb(255, 208, 0);
+      border-top-color: rgba(255, 174, 0,.5);
+      border-bottom-color: rgba(255, 208, 0,.5);
       animation: subdialBd 2s .5s linear forwards;
     }
   }
@@ -762,7 +766,7 @@ footer {
     // border: 1px solid orange;
     left: 50%;
     bottom: 10%;
-    background: url(../src/subdial_v3.png),black;
+    background: url(../src/subdial_v6.png),black;
     background-size: cover;
   }
 
@@ -794,6 +798,28 @@ footer {
   50%{opacity: 1; transform: rotate(360deg);background: red;}
   75%{opacity: 1; transform: rotate(720deg);background: red;}
   100%{opacity: 1; transform: rotate(195deg);background:linear-gradient(to right,red 50%,transparent 50%);}
+}
+
+.subLeftChimMin{
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left;
+    background: red;
+    opacity: 0;
+    z-index: 40;
+    animation: subLeftChim 4s 2s forwards cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@keyframes subLeftChim{
+  0%{opacity: 0; transform: rotate(0deg);background: red;}
+  25%{opacity: 1; transform: rotate(0deg);background: red;}
+  50%{opacity: 1; transform: rotate(417deg);background: red;}
+  75%{opacity: 1; transform: rotate(812deg);background: red;}
+  100%{opacity: 1; transform: rotate(255deg);}
 }
 // analog Title
 .analogTitle_title {
