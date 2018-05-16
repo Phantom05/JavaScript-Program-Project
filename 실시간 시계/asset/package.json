@@ -1,0 +1,20 @@
+{
+  "name": "asset",
+  "version": "1.0.0",
+  "description": "Live Time",
+  "main": "index.js",
+  "scripts": {
+    "test": "test command"
+  },
+  "keywords": [
+    "Real",
+    "time",
+    "clock"
+  ],
+  "author": "phantom05",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-latest": "^6.24.1"
+  }
+}
