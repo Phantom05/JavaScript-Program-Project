@@ -29,11 +29,6 @@ h1{
   margin: 5px;
 
 }
-@keyframes aitf{
-  0%{background-position-x: 0}
-  100%{background-position-x: 100%}
-}
-
 .editorPara {
   display: inline-block;
   width: 300px;

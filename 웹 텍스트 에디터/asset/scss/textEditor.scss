@@ -1,0 +1,133 @@
+body {
+  background: #161616;
+}
+
+.wrap {
+  width: 800px;
+  margin: auto;
+  text-align: center;
+  background: #282828;
+  padding: 20px;
+}
+
+.editor__Title {
+  text-transform: uppercase;
+  display: block;
+  color: #000;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.editor__title {
+  text-align: left;
+  padding: 10px;
+  .editor__h1 {
+    font-size: 1rem;
+    width: 500px;
+    padding-left: 5px;
+    height: 30px;
+  }
+}
+
+.textEditorTool {
+  position: relative;
+  border: 1px solid gray;
+  padding: 5px;
+  .hideFileBt {
+    display: none;
+  }
+  .selectBox {
+    position: relative;
+    top: 3px;
+    margin-bottom: -5px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+    transition: .3s;
+    border: 0;
+    background: white;
+    border-radius: 5px;
+  }
+  .selectBox:focus {
+    outline: none;
+  }
+  .btActive {
+    background: rgba(0, 0, 0, .1);
+    box-shadow: 2px 2px 2px gray;
+    transition: .3s;
+    color: #fff;
+  }
+  .text__labelBox>i {
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+  }
+}
+
+.editorPara {
+  display: inline-block;
+  width: 100%;
+  min-height: 300px;
+  border: 1px solid black;
+  font-size: 1rem;
+  text-align: left;
+  background: #fff;
+  word-wrap: break-word;
+  b {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  u,
+  i,
+  strike,
+  blockquote {
+    font-size: 1rem;
+  }
+  blockquote {
+    border-left: 1px solid rgba(131, 130, 130, 0.7) !important;
+  }
+}
+
+@mixin fontFormat() {
+  position: relative;
+  top: -3px;
+  font-size: 1rem;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.fontSize {
+  @include fontFormat()
+}
+
+.fontFamily {
+  @include fontFormat()
+}
+
+.textMiddle {
+  text-align: center;
+}
+
+.textRight {
+  text-align: right;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+
+
+@media screen and (max-width:800px) {
+  .wrap {
+    width: 100%;
+  }
+}
