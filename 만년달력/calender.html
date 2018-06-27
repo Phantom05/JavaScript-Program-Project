@@ -224,100 +224,100 @@
     </div>
   </div>
   <script>
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    const monthText = document.getElementById('monthText');
-    const yearsText = document.getElementById('yearsText');
-    const titleMonth = document.getElementById('titleMonth');
-    const mtwhfss = document.getElementsByClassName('mtwhfss');
-    const arrBt = document.getElementsByClassName('arrBt');
-    const title = document.getElementById('title');
-    const lastTd = document.getElementById('lastTd');
-    const allDay = document.getElementsByClassName('day');
-    const dayOftheWeek = document.getElementById('dayOftheWeek');
+    function calendarFunc() {
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      const monthText = document.getElementById('monthText');
+      const yearsText = document.getElementById('yearsText');
+      const titleMonth = document.getElementById('titleMonth');
+      const mtwhfss = document.getElementsByClassName('mtwhfss');
+      const arrBt = document.getElementsByClassName('arrBt');
+      const title = document.getElementById('title');
+      const lastTd = document.getElementById('lastTd');
+      const allDay = document.getElementsByClassName('day');
+      const dayOftheWeek = document.getElementById('dayOftheWeek');
 
-    let date = new Date();
-    let years = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let today = date.getDate();
-    let nowMonth = date.getMonth() + 1;
-    let cntBt = 0;
-    //오늘 날짜
-    let todayOfNum = date.getDay();
+      let date = new Date();
+      let years = date.getFullYear();
+      let month = date.getMonth() + 1;
+      let today = date.getDate();
+      let nowMonth = date.getMonth() + 1;
+      let cntBt = 0;
+      let todayOfNum = date.getDay();
 
-    const dayOfTheWeek = ['Sun', 'Mon', 'Tues', 'Wednes', 'Thurs', 'Fri', 'Satur'];
-    const engMonthName = [
-      'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',
-      'December'
-    ];
-    //every month days array
-    let allMonthday = [31, yunmonth() ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+      const dayOfTheWeek = ['Sun', 'Mon', 'Tues', 'Wednes', 'Thurs', 'Fri', 'Satur'];
+      const engMonthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+        'October', 'November', 'December'
+      ];
+      //every month days array
+      let allMonthday = [31, yunmonth() ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    function checkYun(year) {
-      if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) return 29
-      else return 28
-    }
-    //금일 요일
-    dayOftheWeek.innerHTML = '(' + dayOfTheWeek[todayOfNum] + ')'
-
-    //요일 함수
-    function dayOfWeek() {
-      for (var i = 0; i < mtwhfss.length; i++) {
-        mtwhfss[i].textContent = dayOfTheWeek[i] + 'day'
+      function checkYun(year) {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) return 29;
+        else return 28;
       }
-      return;
-    }
-    dayOfWeek()
+      //Today's day
+      dayOftheWeek.innerHTML = '(' + dayOfTheWeek[todayOfNum] + ')'
 
-    // button click event for prev,next
-    title.addEventListener('click', function (e) {
-      if (e.target.id === 'prev') {
-        (month <= 1) ? (month = 12, years--) : month--;
-      } else if (e.target.id === 'next') {
-        (month >= 12) ? (month = 1, years++) : month++;
+      //Day function
+      function dayOfWeek() {
+        for (var i = 0; i < mtwhfss.length; i++) {
+          mtwhfss[i].textContent = dayOfTheWeek[i] + 'day';
+        }
+        return;
+      }
+      dayOfWeek()
+
+      // button click event for prev,next
+      title.addEventListener('click', function (e) {
+        if (e.target.id === 'prev') {
+          (month <= 1) ? (month = 12, years--) : month--;
+        } else if (e.target.id === 'next') {
+          (month >= 12) ? (month = 1, years++) : month++;
+        }
+        calendar();
+        return;
+      })
+
+      //calendar function start
+      function calendar(e) {
+        //Date count function
+        let dayofweekcheck = [31, checkYun(years - 1), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        let daymount = 0;
+        for (var i = 0; i < dayofweekcheck.length; i++) {
+          daymount += allMonthday[i];
+        }
+        for (var i = 0; i < allMonthday.length - (allMonthday.length - (month - 1)); i++) {
+          daymount += allMonthday[i];
+        }
+        //The function of the number of days in the previous year. That is, the first day of the month
+        // console.log('이번달 첫요일', dayOfTheWeek[((daymount * 365)) % 7])
+
+        //title month //side years,month
+        titleMonth.textContent = (month < 10) ? '0' + month : month;
+        yearsText.innerHTML = '-' + years + '-';
+        monthText.innerHTML = '(' + engMonthName[month - 1] + ')';
+        //reset day
+        for (var i = 0; i < allDay.length; i++) {
+          allDay[i].innerHTML = '';
+        }
+        for (let i = 1; i <= allMonthday[month - 1]; i++) {
+          allDay[i - 1 + ((daymount * 365)) % 7].innerHTML = i;
+        }
+        (years + '-' + month === date.getFullYear() + '-' + (date.getMonth() + 1)) ?
+        allDay[today].classList.add('today'): allDay[today].classList.remove('today');
+        return;
       }
       calendar();
-      return;
-    })
 
-    //calendar function start
-    function calendar(e) {
-      //날수 함수
-      let dayofweekcheck = [31, checkYun(years - 1), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-      let daymount = 0;
-      for (var i = 0; i < dayofweekcheck.length; i++) {
-        daymount += allMonthday[i];
+      // intercalation function
+      function yunmonth() {
+        const year = date.getFullYear;
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) return true;
+        else return false;
       }
-      for (var i = 0; i < allMonthday.length - (allMonthday.length - (month - 1)); i++) {
-        daymount += allMonthday[i];
-      }
-      //전년도 날수합 +이번년도전달 까지의 합%7 즉 이번달 첫요일
-      console.log('이번달 첫요일', dayOfTheWeek[((daymount * 365)) % 7])
-      console.log(((daymount * 365)) % 7)
-
-      //title month //side years,month
-      titleMonth.textContent = (month < 10) ? '0' + month : month;
-      yearsText.innerHTML = '-' + years + '-';
-      monthText.innerHTML = '(' + engMonthName[month - 1] + ')';
-      //reset day
-      for (var i = 0; i < allDay.length; i++) {
-        allDay[i].innerHTML = '';
-      }
-      for (let i = 1; i <= allMonthday[month - 1]; i++) {
-        allDay[i - 1 + ((daymount * 365)) % 7].innerHTML = i;
-      }
-      (years + '-' + month === date.getFullYear() + '-' + (date.getMonth() + 1)) ?
-      allDay[today].classList.add('today'): allDay[today].classList.remove('today');
-      return;
     }
-    calendar();
-
-    // intercalation function
-    function yunmonth() {
-      const year = date.getFullYear;
-      if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) return true;
-      else return false;
-    }
+    calendarFunc()
   </script>
 </body>
 
