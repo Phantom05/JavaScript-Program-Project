@@ -1,6 +1,7 @@
 # 만년달력
 
-![2018-06-27_00-35-01](https://user-images.githubusercontent.com/33567964/41924207-5b591452-79a4-11e8-9eef-556329cfcf1c.gif)
+![2018-06-27_12-26-04](https://user-images.githubusercontent.com/33567964/41951367-8aa41548-7a05-11e8-847f-70c55aa8d2ea.gif)
+
 
 
 
