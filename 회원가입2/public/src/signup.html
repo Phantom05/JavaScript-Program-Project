@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./scss/signup.css">
+</head>
+<body>
+  <div class="wrap">
+    <div class="signup">
+      <fieldset>
+        <legend class="blind">회원가입</legend>
+        <div class="signup_title">
+          <h1>회원가입</h1>
+          <p class="signup__sub_title">회원가입으로 더 많은 혜택을 누려보세요!</p>
+        </div>
+        <form action="www" id="submitForm" class="signup__form">
+          <div>
+            <input type="text" name="name" placeholder="이름" class="signup__input" autocomplete="off" autofocus="on" required>
+          </div>
+          <div>
+            <input type="email" name="email" placeholder="이메일" class="signup__input" autocomplete="off" required>
+          </div>
+          <div>
+            <input type="password" id="signupPassword" name="password" placeholder="비밀번호" class="signup__input" autocomplete="off" required>
+          </div>
+          <div id="securityBox" class="signup__security_check">
+            <span class="security_title">비밀번호 안전도</span>
+            <span class="security_bar"></span>
+            <div class="security_graph">
+              <div id="securityBar" class="security_graph_bar"></div>
+            </div>
+          </div>
+          <div>
+            <input type="password" name="password" placeholder="비밀번호 확인" id="securityCheckPassword" class="signup__input" autocomplete="off"
+              required>
+          </div>
+          <div class="sigbup__check">
+            <p>
+              <input type="checkbox" id="pos1" class="signup__hide" name="check1">
+              <label for="pos1" class="signup__checkbox"></label>서비스에 대한 소식을 이메일로 받아봅니다.</p>
+            <p>
+              <input type="checkbox" id="pos2" class="signup__hide" name="check2">
+              <label for="pos2" class="signup__checkbox"></label>제공하는 서비스 약관에 동의합니다.
+              <strong>
+                <a href="">약관보기</a>
+              </strong>
+            </p>
+          </div>
+          <input type="submit" value="가입하기" class="submit__button">
+        </form>
+      </fieldset>
+
+      <div id="securityTextBox" class="security_info_box">
+        <span id="securityTitle" class="security_title_box">사용불가</span>
+        <span id="securityTitleInner" class="security_title_inner"> : 비밀번호 재작성 필요</span>
+        <span id="securitySubInfo" class="security_sub_info">6~16자의 영문 대소문자, 숫자 및 특수문자 사용</span>
+      </div>
+      <div id="secCheckBox" class="security_equ">
+        <span class="equ_circle"></span> 비밀번호가 일치합니다.
+      </div>
+    </div>
+  </div>
+  <script src="./js/signup.js"></script>
+</body>
+
+</html>
